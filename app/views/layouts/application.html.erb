@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/1461ad3e95.js" crossorigin="anonymous"></script>
     <%= javascript_importmap_tags %>
+    <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="jack body-three titillium-web-regular">
+    <div class="navbar">
+      <%= render "shared/navbar" %>
+    </div>
+    <div class="yield-div">
+      <%= yield %>
+    </div>
   </body>
 </html>

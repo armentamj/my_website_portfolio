@@ -1,0 +1,64 @@
+//graphical variables
+@import "config/fonts";
+@import "config/colors";
+
+//css partials
+@import "pages/index";
+@import "components/index";
+
+//styles for the actual application.html.erb
+.yield-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+.body{
+  background-color: #d7eed8;
+  display: flex;
+  justify-content: center;
+  align-content: start;
+  color: #00692c;
+  margin: 0;
+  background-image: url('beach-6517214_1920.jpg');
+  height: 750px;
+  text-shadow: 1px 1px 1px white, -1px -1px 1px white, -1px 1px 1px white, 1px -1px 1px white;
+}
+
+.body-two{
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-content: start;
+  color: #ffffff;
+  margin: 0;
+}
+
+.body-three{
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  align-content: start;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+
+.mode-big{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: start;
+}
+
+.jack{
+  display: flex;
+  justify-content: center;
+  align-content: start;
+}

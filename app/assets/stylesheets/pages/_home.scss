@@ -1,0 +1,72 @@
+.home_big{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 850px;
+}
+
+.home_info{
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-content: start;
+  margin-right: 28px;
+  margin-top: 50px;
+  height: 850px;
+}
+
+.home_info h1{
+  font-size: 60px;
+  margin: 0 0 0 16px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  padding-top: 0;
+}
+
+.home_info h3{
+  margin: 0 0 16px 16px;
+  font-size: 20px;
+  letter-spacing: 5px;
+
+}
+.home_info p{
+  margin: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 1px;
+
+}
+
+.aich_two{
+  letter-spacing: 5px;
+  margin: 25px 0 0 16px;
+}
+
+.big-you-l{
+  display: flex;
+  justify-content: start;
+  align-content: center;
+}
+
+.you-l li{
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 10px 0 10px 0;
+}
+
+.joel_pina_colada{
+  width: 375px;
+  height: 850px;
+  object-fit: cover;
+  margin-left: 28px;
+  margin-top: 50px;
+}
+
+.relax_window{
+  background-color: #aaf8ae44;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+}
