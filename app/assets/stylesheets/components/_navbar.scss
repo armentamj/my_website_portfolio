@@ -1,0 +1,189 @@
+//Invelopes all of the navigation bar and changes to relax mode//
+.navigation-big{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  width: max-content;
+  border-radius: 0 0 0 5px;
+  background-color: #aaf8ae44;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+  position: fixed;
+  height: 100%;
+  padding-top: 20px;
+  top: 0;
+}
+
+//Invelopes all of the navigation bar and changes to dark mode//
+.navigation-big-two{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  width: max-content;
+  border-radius: 0 0 0 5px;
+  background-color: #ffffff44;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+  position: fixed;
+  height: 100%;
+  padding-top: 20px;
+  top: 0;
+}
+
+//Invelopes all of the navigation bar and changes to light mode//
+.navigation-big-three{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  width: max-content;
+  border-radius: 0 0 0 5px;
+  background-color: #1c569910;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+  position: fixed;
+  height: 100%;
+  padding-top: 20px;
+  top: 0;
+}
+
+//heading with word "mode"//
+.modes{
+  text-align: center;
+  font-size: 25px;
+  margin: 10px 0 10px 0;
+}
+
+//Makes border-bottom in red to show the current mode//
+.show{
+  border-bottom: 4px solid red;
+}
+
+//Section for all links that are not icons//
+.navigation-knopfen{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+//non-icon links on relax mode//
+.navigation-knopfe{
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 13px;
+  transition: all .3s ease-in-out;
+}
+
+//non-icon links on dark mode//
+.navigation-knopfe-two{
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 13px;
+  transition: all .3s ease-in-out;
+}
+
+//non-icon links on light mode//
+.navigation-knopfe-three{
+  margin: 0 10px 0 10px;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 13px;
+  transition: all .3s ease-in-out;
+}
+
+//links that are also icons on relax mode//
+.navigation-i{
+  margin: 30px 10px 30px 10px;
+  font-size: 30px !important;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  font-weight: 600 !important;
+}
+
+.navigation-i:hover, .navigation-knopfe:hover{
+  background-color: #59d15f75;
+}
+
+//links that are also icons on dark mode//
+.navigation-i-two{
+  margin: 30px 10px 30px 10px;
+  font-size: 30px !important;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  font-weight: 600 !important;
+}
+
+.navigation-i-two:hover, .navigation-knopfe-two:hover{
+  background-color: #ffffffb0;
+}
+
+//links that are also icons on light mode//
+.navigation-i-three{
+  margin: 30px 10px 30px 10px;
+  font-size: 30px !important;
+  letter-spacing: 5px;
+  width: max-content;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  font-weight: 600 !important;
+}
+
+.navigation-i-three:hover, .navigation-knopfe-three:hover{
+  background-color: #2523bb42;
+}
+
+//class for targeting the non-icon links which will have the navigation-knopfe class changed through js//
+.bowton{
+  width: max-content;
+  cursor: pointer;
+}
+
+//class for targeting the icon links which will have the navigation-i class changed through js//
+.eye{
+  width: max-content;
+}
+
+//class for controlling the link-to helpers from rails//
+.link-to{
+  text-decoration: none;
+}
+
+//changes the color of the icons because the body class does not affect fontawesome icons and changes it to relax mode//
+.lt{
+  color: #00692c;
+}
+
+//changes the color of the icons because the body class does not affect fontawesome icons and changes it to dark mode//
+.lt-two{
+  color: white;
+}
+
+//changes the color of the icons because the body class does not affect fontawesome icons and changes it to light mode//
+.lt-three{
+  color: black;
+}
