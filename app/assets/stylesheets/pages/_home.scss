@@ -16,6 +16,17 @@
   height: 850px;
 }
 
+.home_slidie{
+  transform: translateY(900px); /* Start with the element 50px lower than its normal position */
+  opacity: 0; /* Start with 0 opacity to fade in */
+  transition: transform 1.5s ease-out 1s, opacity 1.5s ease-out 1s;; /* Smooth transition for both transform and opacity */
+}
+
+.home_slidie.home_visible {
+  transform: translateY(0); /* Move the element to its original position */
+  opacity: 1; /* Fade the element in */
+}
+
 .home_info h1{
   font-size: 60px;
   margin: 0 0 0 16px;
@@ -56,15 +67,43 @@
 }
 
 .joel_pina_colada{
-  width: 375px;
+  width: 600px;
   height: 850px;
   object-fit: cover;
   margin-left: 28px;
   margin-top: 50px;
+  transform: scaleX(-1);
 }
+
+.joel_slidie {
+  opacity: 0; /* Start with 0 opacity */
+  transition: opacity 0.5s ease-out 2s; /* Only transition opacity */
+}
+
+/* When the 'joel_visible' class is added, the element fades in */
+.joel_slidie.joel_visible {
+  opacity: 1; /* Fade the element in */
+}
+
 
 .relax_window{
   background-color: #aaf8ae44;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+}
+
+.dark_window{
+  background-color: #ffffff44;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 3px 3px 10px #00b24a25;
+}
+
+.light_window{
+  background-color: #04448d36;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);

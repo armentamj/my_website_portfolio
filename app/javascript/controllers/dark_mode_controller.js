@@ -5,15 +5,15 @@ export default class extends Controller {
 
   dark(click) {
     // Get the mode from the clicked element's data-mode attribute
-    const mode = click.target.dataset.mode;
-    const darky = document.querySelector(".darky");
-    const lighty = document.querySelector(".lighty");
-    const relaxy = document.querySelector(".relaxy");
-    const bodys = document.querySelectorAll(".jack");
+    const mode = click.target.dataset.mode;//Which ever of the clickable p tags was clicked on.
+    const darky = document.querySelector(".darky");//Dark clickable p tag in navbar
+    const lighty = document.querySelector(".lighty");//Light clickable p tag in navbar
+    const relaxy = document.querySelector(".relaxy");//Relax clickable p tag in navbar
+    const bodys = document.querySelectorAll(".jack"); //Body element
     const linkys = document.querySelectorAll(".link-to"); // All link-to elements
-    const bowtons = document.querySelectorAll(".bowton");
-    const navis = document.querySelectorAll(".navi");
-    const eyes = document.querySelectorAll(".eye");
+    const bowtons = document.querySelectorAll(".bowton");//All non-icon links
+    const navis = document.querySelectorAll(".navi");//Navigation Bar
+    const eyes = document.querySelectorAll(".eye");//Icon links
 
     console.log("Current mode:", mode); // Debugging
 
@@ -48,6 +48,9 @@ export default class extends Controller {
       eyes.forEach(eye => eye.classList.add("navigation-i-two"));
       const homey = document.querySelector(".home_info");
       homey.classList.remove("relax_window");
+      homey.classList.remove("light_window");
+      homey.classList.add("dark_window");
+
     } else if (mode === "light") {
       // Light Mode
       bodys.forEach(body => body.classList.add("body-three", "titillium-web-regular"));
@@ -60,7 +63,9 @@ export default class extends Controller {
       linkys.forEach(link => link.classList.add("lt-three"));
       eyes.forEach(eye => eye.classList.add("navigation-i-three"));
       const homey = document.querySelector(".home_info");
-      homey.classList.remove("relax_window")
+      homey.classList.remove("relax_window");
+      homey.classList.remove("dark_window");
+      homey.classList.add("light_window");
     } else if (mode === "relax") {
       // Relax Mode
       bodys.forEach(body => body.classList.add("body", "jockey-one-regular"));
@@ -73,6 +78,8 @@ export default class extends Controller {
       linkys.forEach(link => link.classList.add("lt"));
       eyes.forEach(eye => eye.classList.add("navigation-i"));
       const homey = document.querySelector(".home_info");
+      homey.classList.remove("light_window");
+      homey.classList.remove("dark_window");
       homey.classList.add("relax_window");
     }
   }
