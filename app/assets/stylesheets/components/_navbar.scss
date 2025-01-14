@@ -1,4 +1,4 @@
-//Invelopes all of the navigation bar and changes to relax mode//
+/*Invelopes all of the navigation bar and changes to relax mode*/
 .navigation-big{
   display: flex;
   flex-direction: column;
@@ -11,13 +11,13 @@
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  position: fixed;
   height: 100%;
   padding-top: 20px;
+  position: fixed;
   top: 0;
 }
 
-//Invelopes all of the navigation bar and changes to dark mode//
+/*Invelopes all of the navigation bar and changes to dark mode*/
 .navigation-big-two{
   display: flex;
   flex-direction: column;
@@ -30,13 +30,13 @@
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  position: fixed;
   height: 100%;
   padding-top: 20px;
+  position: fixed;
   top: 0;
 }
 
-//Invelopes all of the navigation bar and changes to light mode//
+/*Invelopes all of the navigation bar and changes to light mode*/
 .navigation-big-three{
   display: flex;
   flex-direction: column;
@@ -44,30 +44,45 @@
   justify-items: center;
   width: max-content;
   border-radius: 0 0 0 5px;
-  background-color: #1c569910;
+  background-color: #04448d36;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  position: fixed;
   height: 100%;
   padding-top: 20px;
+  position: fixed;
   top: 0;
 }
 
-//heading with word "mode"//
+.slidie{
+  transform: translateY(-100%); /* Start hidden above the page */
+  transition: transform 2s ease-in-out 0.5s; /* Animation duration and easing */
+  position: fixed;
+  top: 0;
+}
+
+.slidie.navbar_visible{
+  transform: translateY(0); /* Move it to its normal position */
+}
+
+.navigation-big-three.visible{
+  transform: translateY(0); /* Move it to its normal position */
+}
+
+/*heading with word "mode"*/
 .modes{
   text-align: center;
   font-size: 25px;
   margin: 10px 0 10px 0;
 }
 
-//Makes border-bottom in red to show the current mode//
+/*Makes border-bottom in red to show the current mode*/
 .show{
   border-bottom: 4px solid red;
 }
 
-//Section for all links that are not icons//
+/*Section for all links that are not icons*/
 .navigation-knopfen{
   display: flex;
   flex-direction: column;
@@ -76,7 +91,7 @@
   margin-bottom: 10px;
 }
 
-//non-icon links on relax mode//
+/*non-icon links on relax mode*/
 .navigation-knopfe{
   margin: 0 10px 0 10px;
   font-size: 20px;
@@ -87,7 +102,7 @@
   transition: all .3s ease-in-out;
 }
 
-//non-icon links on dark mode//
+/*non-icon links on dark mode*/
 .navigation-knopfe-two{
   margin: 0 10px 0 10px;
   font-size: 20px;
@@ -98,7 +113,7 @@
   transition: all .3s ease-in-out;
 }
 
-//non-icon links on light mode//
+/*non-icon links on light mode*/
 .navigation-knopfe-three{
   margin: 0 10px 0 10px;
   font-size: 20px;
