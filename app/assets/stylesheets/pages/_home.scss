@@ -18,13 +18,11 @@
 
 .home_slidie{
   transform: translateY(900px); /* Start with the element 50px lower than its normal position */
-  opacity: 0; /* Start with 0 opacity to fade in */
-  transition: transform 1.5s ease-out 1s, opacity 1.5s ease-out 1s;; /* Smooth transition for both transform and opacity */
 }
 
 .home_slidie.home_visible {
   transform: translateY(0); /* Move the element to its original position */
-  opacity: 1; /* Fade the element in */
+  transition: transform 1.5s ease-out 1s, opacity 1.5s ease-out 1s; /* Smooth transition for both transform and opacity */
 }
 
 .home_info h1{
@@ -73,6 +71,11 @@
   margin-left: 28px;
   margin-top: 50px;
   transform: scaleX(-1);
+  border-radius: 2px;
+}
+
+.normal{
+  transform: scaleX(0);
 }
 
 .joel_slidie {
@@ -92,6 +95,8 @@
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border-radius: 2px;
 }
 
 .dark_window{
@@ -100,6 +105,9 @@
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border-radius: 2px;
+
 }
 
 .light_window{
@@ -108,4 +116,6 @@
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  border-radius: 2px;
 }

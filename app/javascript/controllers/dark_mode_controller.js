@@ -50,7 +50,8 @@ export default class extends Controller {
       homey.classList.remove("relax_window");
       homey.classList.remove("light_window");
       homey.classList.add("dark_window");
-
+      let jay = document.querySelector(".joel_pina_colada");
+      jay.src = '/assets/joel.jpg';
     } else if (mode === "light") {
       // Light Mode
       bodys.forEach(body => body.classList.add("body-three", "titillium-web-regular"));
@@ -66,6 +67,8 @@ export default class extends Controller {
       homey.classList.remove("relax_window");
       homey.classList.remove("dark_window");
       homey.classList.add("light_window");
+      let jay = document.querySelector(".joel_pina_colada");
+      jay.src = '/assets/joel.jpg';
     } else if (mode === "relax") {
       // Relax Mode
       bodys.forEach(body => body.classList.add("body", "jockey-one-regular"));
@@ -81,6 +84,8 @@ export default class extends Controller {
       homey.classList.remove("light_window");
       homey.classList.remove("dark_window");
       homey.classList.add("relax_window");
+      let jay = document.querySelector(".joel_pina_colada");
+      jay.src = '/assets/joel_pina_colada.jpg';
     }
   }
 }
