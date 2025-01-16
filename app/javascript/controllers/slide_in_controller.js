@@ -12,19 +12,18 @@ export default class extends Controller {
   }
 
   slides() {
-
     const hasVisited = localStorage.getItem("visited");
     if (!hasVisited) {
-      localStorage.setItem("visited", "true");
+      // localStorage.setItem("visited", "true");
       const navLoad = document.querySelector(".navi");
-      navLoad.classList.add("navbar_visible"); // Add 'visible' class to trigger the animation
+      navLoad.classList.add("navbar_visible");
       const homeInfo = document.querySelector(".home_info");
       homeInfo.classList.add("home_visible");
-      const imageElement = document.querySelector(".joel_pina_colada");
-      imageElement.classList.add("joel_visible");
+      const image = document.querySelector(".joel_pina_colada");
+      image.classList.add("joel_visible");
     } else {
-      const imageElement = document.querySelector(".joel_pina_colada");
-      imageElement.classList.remove("joel_slidie");
+      const image = document.querySelector(".joel_pina_colada");
+      image.classList.remove("joel_slidie");
       const homeInfo = document.querySelector(".home_info");
       homeInfo.classList.remove("home_slidie");
       const navLoad = document.querySelector(".navi");
