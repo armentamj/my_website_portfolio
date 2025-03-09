@@ -23,5 +23,3 @@ Things you may want to cover:
 
 * ...
 # my_website_portfolio
-
-icisadodek
