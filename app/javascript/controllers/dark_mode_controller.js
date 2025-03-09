@@ -14,6 +14,7 @@ export default class extends Controller {
     const bowtons = document.querySelectorAll(".bowton");//All non-icon links
     const navis = document.querySelectorAll(".navi");//Navigation Bar
     const eyes = document.querySelectorAll(".eye");//Icon links
+    const modus = document.querySelector(".modus");//Modeba
 
     console.log("Current mode:", mode); // Debugging
 
@@ -44,6 +45,8 @@ export default class extends Controller {
       darky.classList.add("show");
       lighty.classList.remove("show");
       relaxy.classList.remove("show");
+      modus.classList.replace("big-mode", "big-mode-two");
+      modus.classList.replace("big-mode-three", "big-mode-two");
       linkys.forEach(link => link.classList.add("lt-two"));
       eyes.forEach(eye => eye.classList.add("navigation-i-two"));
       const homey = document.querySelector(".home_info");
@@ -61,6 +64,8 @@ export default class extends Controller {
       darky.classList.remove("show");
       lighty.classList.add("show");
       relaxy.classList.remove("show");
+      modus.classList.replace("big-mode", "big-mode-three");
+      modus.classList.replace("big-mode-two", "big-mode-three");
       linkys.forEach(link => link.classList.add("lt-three"));
       eyes.forEach(eye => eye.classList.add("navigation-i-three"));
       const homey = document.querySelector(".home_info");
@@ -78,6 +83,8 @@ export default class extends Controller {
       darky.classList.remove("show");
       lighty.classList.remove("show");
       relaxy.classList.add("show");
+      modus.classList.replace("big-mode-two", "big-mode");
+      modus.classList.replace("big-mode-three", "big-mode");
       linkys.forEach(link => link.classList.add("lt"));
       eyes.forEach(eye => eye.classList.add("navigation-i"));
       const homey = document.querySelector(".home_info");

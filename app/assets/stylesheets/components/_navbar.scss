@@ -2,19 +2,18 @@
 .navigation-big{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  justify-items: center;
-  width: max-content;
+  justify-content: center;
+  width: 117px;
   border-radius: 0 0 0 5px;
   background-color: #aaf8ae44;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  height: 100%;
-  padding-top: 20px;
+  height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   transition: background-color 1s ease, color 0.1s ease;
 }
 
@@ -22,19 +21,18 @@
 .navigation-big-two{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  justify-items: center;
-  width: max-content;
+  justify-content: center;
+  width: 117px;
   border-radius: 0 0 0 5px;
   background-color: #ffffff44;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  height: 100%;
-  padding-top: 20px;
+  height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   transition: background-color 1s ease, color 0.1s ease;
 }
 
@@ -42,43 +40,29 @@
 .navigation-big-three{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  justify-items: center;
-  width: max-content;
+  justify-content: center;
+  width: 117px;
   border-radius: 0 0 0 5px;
   background-color: #04448d36;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(0, 0, 0, 0.07);
   box-shadow: 3px 3px 10px #00b24a25;
-  height: 100%;
-  padding-top: 20px;
+  height: 100vh;
   position: fixed;
   top: 0;
+  left: 0;
   transition: background-color 1s ease, color 0.1s ease;
 }
 
 .slidie{
   transform: translateY(-100%); //Start hidden above the page//
   transition: transform 2s ease-in-out 0.5s; //Animation duration and easing//
-  position: fixed;
   top: 0;
 }
 
 .slidie.navbar_visible{
   transform: translateY(0); //Move it to its normal position//
-}
-
-//heading with word "mode"//
-.modes{
-  text-align: center;
-  font-size: 25px;
-  margin: 10px 0 10px 0;
-}
-
-//Makes border-bottom in red to show the current mode//
-.show{
-  border-bottom: 4px solid red;
 }
 
 //Section for all links that are not icons//
@@ -87,7 +71,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 //non-icon links on relax mode//
@@ -150,6 +133,7 @@
   text-decoration: none;
   transition: all .3s ease-in-out;
   font-weight: 600 !important;
+
 }
 
 .navigation-i-two:hover, .navigation-knopfe-two:hover{
@@ -167,6 +151,12 @@
   text-decoration: none;
   transition: all .3s ease-in-out;
   font-weight: 600 !important;
+
+}
+//Making the before elements of the navigation-i classes even.//
+.navigation-i-three::before, .navigation-i-two::before, .navigation-i::before{
+  margin: 0;
+  padding: 0;
 }
 
 .navigation-i-three:hover, .navigation-knopfe-three:hover{
@@ -194,16 +184,19 @@
 .lt{
   color: #00692c;
   transition: background-color 1s ease, color 0.1s ease;
+  flex-grow: 1;
 }
 
 //changes the color of the icons because the body class does not affect fontawesome icons and changes it to dark mode//
 .lt-two{
   color: white;
   transition: background-color 1s ease, color 0.1s ease;
+  flex-grow: 1;
 }
 
 //changes the color of the icons because the body class does not affect fontawesome icons and changes it to light mode//
 .lt-three{
   color: black;
   transition: background-color 1s ease, color 0.1s ease;
+  flex-grow: 1;
 }

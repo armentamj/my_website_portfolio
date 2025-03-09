@@ -11,6 +11,10 @@ module RailsMyWebsitePortfolio
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    if Rails.env.development?
+      system('google-chrome http://127.0.0.1:3000')
+    end
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.

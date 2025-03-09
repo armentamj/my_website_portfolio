@@ -12,12 +12,15 @@
     <%= javascript_importmap_tags %>
     <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
   </head>
-  <body class="jack body-three titillium-web-regular">
+  <body class="jack body-three titillium-web-regular" data-controller="slide-in dark-mode">
     <div class="navbar">
       <%= render "shared/navbar" %>
     </div>
     <div class="yield-div">
       <%= yield %>
+    </div>
+    <div class="modebar">
+      <%= render "shared/modebar" %>
     </div>
   </body>
 </html>

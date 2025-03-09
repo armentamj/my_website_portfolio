@@ -1,0 +1,43 @@
+//heading with word "mode"//
+.big-mode{
+    background-color: #aaf8ae44;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 3px 3px 10px #00b24a25;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.big-mode-two{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ffffff44;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 3px 3px 10px #00b24a25;
+}
+
+.big-mode-three{
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 3px 3px 10px #00b24a25;
+    background-color: #04448d36;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.modes{
+    text-align: center;
+    font-size: 25px;
+  }
+  
+  //Makes border-bottom in red to show the current mode//
+  .show{
+    border-bottom: 4px solid red;
+  }

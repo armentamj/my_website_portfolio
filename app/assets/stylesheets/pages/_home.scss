@@ -1,23 +1,27 @@
+/*Styling the section that wraps the information on me and my picture*/
 .home_big{
+  width: 100%;
+  height: auto;
+  margin: 0;
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 850px;
+  align-items: center;
 }
 
+/*Styling the section that contains the information on me.*/
 .home_info{
-  width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-content: start;
-  margin-right: 28px;
-  margin-top: 50px;
-  height: 850px;
+  align-items: start;
+  width: 600px;
+  height: 800px;
+  margin-right: 10px;
+
 }
 
 .home_slidie{
-  transform: translateY(900px); /* Start with the element 50px lower than its normal position */
+  transform: translateY(900px); /* Start with the element 900px lower than its normal position */
 }
 
 .home_slidie.home_visible {
@@ -25,57 +29,72 @@
   transition: transform 1.5s ease-out 1s, opacity 1.5s ease-out 1s; /* Smooth transition for both transform and opacity */
 }
 
+/*Styling the h1*/
 .home_info h1{
   font-size: 60px;
-  margin: 0 0 0 16px;
   letter-spacing: 5px;
   font-weight: 500;
-  padding-top: 0;
+  margin: 0 0 8px 8px;
 }
 
+/*stying the h3 within the home_info class*/
 .home_info h3{
-  margin: 0 0 16px 16px;
   font-size: 20px;
   letter-spacing: 5px;
-
+  margin: 0 0 32px 8px;
 }
+
+/*Styling the p elements of the class home_info*/
 .home_info p{
-  margin: 16px;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 1px;
-
 }
 
+/*Styling the h2*/
 .aich_two{
   letter-spacing: 5px;
-  margin: 25px 0 0 16px;
 }
 
+/*Styling the unordered list element which contains the list items.(The navbar has 2 unordered lists.)*/
 .big-you-l{
   display: flex;
   justify-content: start;
   align-content: center;
 }
 
+/*styling list items that are the buttons of the navbar*/
 .you-l li{
   font-size: 18px;
   letter-spacing: 1px;
-  margin: 10px 0 10px 0;
 }
 
-.joel_pina_colada{
+.big-you-l, .aich_two, .home_info p{
+  margin: 8px;
+  padding: 0;
+}
+
+/*Styling the perent container of the image-tag.*/
+.img_div{
+  height: auto;
   width: 600px;
-  height: 850px;
-  object-fit: cover;
-  margin-left: 28px;
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+/*Styling picture of me*/
+.joel_pina_colada{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 800px;
+  width: 100%;
   transform: scaleX(-1);
   border-radius: 2px;
-}
-
-.normal{
-  transform: scaleX(0);
+  object-fit: cover;
 }
 
 .joel_slidie {
@@ -118,4 +137,61 @@
   box-shadow: 3px 3px 10px #00b24a25;
   transition: background-color 0.5s ease, color 0.5s ease;
   border-radius: 2px;
+}
+
+
+@media screen and (max-width: 1470px) {
+  .home_big {
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 54px;
+    width: calc(100vw - 117px);
+  }
+  .home_info, .img_div{
+    margin: 2px 0 2px 0;
+    height: auto;
+  }
+
+  .navbar{
+    width: 50px;
+    height: 100vh;
+  }
+
+  .navbar .navigation-big, .navbar .navigation-big-two, .navbar .navigation-big-three{
+    width: 50px;
+    height: calc(100vh - 56px);
+    top: 56px;
+  }
+
+  .big-mode, .big-mode-two, .big-mode-three{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-top: 0;
+  }
+
+  .navigation-knopfe, .navigation-knopfe-two, .navigation-knopfe-three, .modes{
+    margin: 2px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .home_info, .img_div{
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .home_info, .img_div{
+    width: 300px;
+  }
 }
