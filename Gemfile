@@ -8,6 +8,9 @@ gem "rails", "~> 7.1.5"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# Light weight gem for handling integration of API's
+gem 'httparty'
+
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
 
@@ -49,6 +52,9 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
+
+# Add dotenv-rails gem for managing environment variables securely in development and test environments
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

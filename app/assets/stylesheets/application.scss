@@ -13,7 +13,11 @@
   align-items: center;
   height: auto;
   width: 100vw;
-  margin: 25px 0 0 0;
+  margin: 0;
+}
+
+.temp-body {
+  overflow: hidden;
 }
 
 .body{
@@ -21,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
-  color: #00692c;
+  color: #015323;
   background-image: url('beach-6517214_1920.jpg');
   text-shadow: 1px 1px 1px white, -1px -1px 1px white, -1px 1px 1px white, 1px -1px 1px white;
   transition: background-image 1s ease, color 0.1s ease;
