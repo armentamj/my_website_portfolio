@@ -2,10 +2,11 @@
 .home_big{
   width: 100%;
   height: auto;
-  margin: 0;
+  margin: 25px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px;
 }
 
 /*Styling the section that contains the information on me.*/
@@ -14,9 +15,9 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  width: 600px;
-  height: 800px;
-  margin-right: 10px;
+  width: 500px;
+  height: 850px;
+  transition: transform 1.5s ease-in-out 1s, opacity 1.5s ease-in-out 1s;
 
 }
 
@@ -26,7 +27,7 @@
 
 .home_slidie.home_visible {
   transform: translateY(0); /* Move the element to its original position */
-  transition: transform 1.5s ease-out 1s, opacity 1.5s ease-out 1s; /* Smooth transition for both transform and opacity */
+  transition: transform 1.5s ease-in-out 1s, opacity 1.5s ease-in-out 1s; /* Smooth transition for both transform and opacity */
 }
 
 /*Styling the h1*/
@@ -68,7 +69,7 @@
   font-size: 18px;
   letter-spacing: 1px;
 }
-
+/*giving some margin to some of the children of the home_info class*/
 .big-you-l, .aich_two, .home_info p{
   margin: 8px;
   padding: 0;
@@ -77,11 +78,10 @@
 /*Styling the perent container of the image-tag.*/
 .img_div{
   height: auto;
-  width: 600px;
+  width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
 }
 
 /*Styling picture of me*/
@@ -90,11 +90,12 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  height: 800px;
+  height: 850px;
   width: 100%;
   transform: scaleX(-1);
   border-radius: 2px;
   object-fit: cover;
+  transition: opacity 0.5s ease-out 2s; /* Only transition opacity */
 }
 
 .joel_slidie {
@@ -149,10 +150,12 @@
     right: 0;
     top: 54px;
     width: calc(100vw - 117px);
+    margin: 2px;
   }
+
   .home_info, .img_div{
-    margin: 2px 0 2px 0;
     height: auto;
+    width: 670px;
   }
 
   .navbar{
@@ -186,12 +189,12 @@
 
 @media screen and (max-width: 780px) {
   .home_info, .img_div{
-    width: 400px;
+    width: 550px;
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 630px) {
   .home_info, .img_div{
-    width: 300px;
+    width: 430px;
   }
 }

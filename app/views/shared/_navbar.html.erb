@@ -3,8 +3,12 @@
     <%= link_to root_path, class: "link-to lt-three" do %>
       <i class="fa-solid fa-house eye navigation-i-three"></i>
     <% end %>
-    <i class="fa-regular fa-envelope-open eye navigation-i-three"></i>
-    <i class="fa-solid fa-play eye navigation-i-three"></i>
+    <%= link_to contact_path, class: "link-to lt-three" do %>
+      <i class="fa-regular fa-envelope-open eye navigation-i-three"></i>
+    <% end %>
+    <%= link_to showcase_path, class: "link-to lt-three" do %>
+      <i class="fa-solid fa-play eye navigation-i-three"></i>
+    <% end %>
     <%= link_to "https://github.com/armentamj", target: "_blank", class: "link-to lt-three" do %>
       <i class="fa-brands fa-github eye navigation-i-three"></i>
     <% end %>

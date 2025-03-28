@@ -1,4 +1,8 @@
 //Invelopes all of the navigation bar and changes to relax mode//
+.navi{
+  transition: transform 2s ease-in-out 0.5s;
+}
+
 .navigation-big{
   display: flex;
   flex-direction: column;
@@ -151,8 +155,8 @@
   text-decoration: none;
   transition: all .3s ease-in-out;
   font-weight: 600 !important;
-
 }
+
 //Making the before elements of the navigation-i classes even.//
 .navigation-i-three::before, .navigation-i-two::before, .navigation-i::before{
   margin: 0;
@@ -184,19 +188,19 @@
 .lt{
   color: #00692c;
   transition: background-color 1s ease, color 0.1s ease;
-  flex-grow: 1;
+  
 }
 
 //changes the color of the icons because the body class does not affect fontawesome icons and changes it to dark mode//
 .lt-two{
   color: white;
   transition: background-color 1s ease, color 0.1s ease;
-  flex-grow: 1;
+  
 }
 
 //changes the color of the icons because the body class does not affect fontawesome icons and changes it to light mode//
 .lt-three{
   color: black;
   transition: background-color 1s ease, color 0.1s ease;
-  flex-grow: 1;
+  
 }

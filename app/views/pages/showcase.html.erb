@@ -1,0 +1,44 @@
+<div class="showcase-big" data-controller="carousel">
+    <h1 class="showcase-h1 light_window">Showcase</h1>
+    <div class="carusel-big light_window">
+        <div class="carusel-img-div one" data-city="miami_beach" data-lat="25.7617" data-lon="-80.1918">
+            <%= image_tag("miami_beach_carusel", alt: 'Picture of Miami Beach, Florida, USA.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div two" data-city="grand_bahamas" data-lat="25.0343" data-lon="-77.3963">
+            <%= image_tag("grand_bahamas_carusel", alt: 'picture of Grand Bahamas.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div three" data-city="lübeck" data-lat="53.8655" data-lon="10.6866">
+            <%= image_tag("lübeck_carusel", alt: 'Picture of Luebeck, Schleswig Holstein, Germany.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div four" data-city="mallorca_callador" data-lat="39.2943" data-lon="3.2152">
+            <%= image_tag("mallorca_callador_carusel", alt: 'Mallorca, Balearic Islands, Spain.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div five" data-city="los_angeles" data-lat="34.0522" data-lon="-118.2437">
+            <%= image_tag("los_angeles_carusel", alt: 'Picture of Los Angeles, California, USA', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div six" data-city="hawaii_oahu" data-lat="21.3069" data-lon="-157.8583">
+            <%= image_tag("hawaii_oahu_carusel", alt: 'Picture of Oahu Beach in Hawaii, USA.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div seven" data-city="phuket" data-lat="7.8804" data-lon="98.3923">
+            <%= image_tag("phuket_carusel", alt: 'Picture of Phuket, Thailand.', class: "img-tag-item") %>
+        </div>
+        <div class="carusel-img-div eight" data-city="bora_bora" data-lat="-17.7134" data-lon="-149.4068">
+            <%= image_tag("bora_bora_carusel", alt: 'Picture of Bora-Bora, French Polynesia.', class: "img-tag-item") %>
+        </div>
+        <div class="next-previous">
+            <h3 class="prevnext-three carusel-buttons" data-button="previous" data-action="click->carousel#next_and_previous">< Previous</h3>
+            <h3 class="prevnext-three carusel-buttons" data-button="next" data-action="click->carousel#next_and_previous">Next ></h3>
+        </div>
+        <div id="weather-info" class="weather-info-container">
+            <div id="small-div" class="small-div">
+                <h3 class="city-name">Miami</h3>
+                <p class="time">Date: -</p>
+                <p class="temperature">Temperature: -°C</p>
+                <p class="min_max">Highs & Lows: - / -°C</p>
+                <p class="description">Weather: -</p>
+                <p class="humidity">Humidity: - %</p>
+                <p class="pressure">Pressure: - mbar</p>
+            </div>
+        </div>
+    </div>
+</div>
