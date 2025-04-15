@@ -1,0 +1,7 @@
+
+services:
+  www:
+    build: .
+    hostname: www
+    container_name: www
+    restart: unless-stopped
