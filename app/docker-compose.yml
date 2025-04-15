@@ -5,3 +5,6 @@ services:
     hostname: www
     container_name: www
     restart: unless-stopped
+    environment:
+      - RAILS_MASTER_KEY=asdfkjlhuiykjfads-afsdkfjhasdf
+
