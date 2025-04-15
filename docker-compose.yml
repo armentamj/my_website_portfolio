@@ -6,5 +6,5 @@ services:
     container_name: www
     restart: unless-stopped
     environment:
-      - RAILS_MASTER_KEY=EyOUjGCoUxGm9SKE
+      - RAILS_MASTER_KEY=455360ee08c549133d8b72ca3b27a3f685fdcb77987ffb0647da92ccc69ba7dc9faf042acec157c2962ae61ca345843c8b31f2f1adac5d2b99aad3f5681b3c1c
       - MESSAGE_ENCRYPTION_KEY=EyOUjGCoUxGm9SKE
