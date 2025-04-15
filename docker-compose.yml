@@ -7,3 +7,4 @@ services:
     restart: unless-stopped
     environment:
       - RAILS_MASTER_KEY=EyOUjGCoUxGm9SKE
+      - MESSAGE_ENCRYPTION_KEY=EyOUjGCoUxGm9SKE
