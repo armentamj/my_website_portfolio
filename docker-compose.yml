@@ -12,3 +12,4 @@ services:
       - proxy
     environment:
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY}
