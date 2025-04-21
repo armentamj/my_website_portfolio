@@ -92,7 +92,7 @@ export default class extends Controller {
     if (activeCity) {
       this.fetchWeatherData(activeCity);
       const element = document.getElementById('weather-info');
-      element.style.backgroundImage = `url('/assets/${activeCity}_carusel.jpg')`;
+      element.style.backgroundImage = `url('/images/${activeCity}_carusel.jpg')`;
     }
   }
 
