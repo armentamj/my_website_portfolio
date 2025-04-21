@@ -102,7 +102,7 @@ export default class extends Controller {
       eyes.forEach(eye => eye.classList.add("navigation-i-two"));
       if (window.location.pathname === "/") {
         homey.classList.add("dark_window");
-        jay.src = '/images/joel.jpg';
+        jay.src = '/assets/joel.jpg';
       } else if (window.location.pathname === "/showcase") {
         carusel.classList.add("dark_window");
         showaichone.classList.add("dark_window");
@@ -126,7 +126,7 @@ export default class extends Controller {
       eyes.forEach(eye => eye.classList.add("navigation-i-three"));
       if (window.location.pathname === "/") {
         homey.classList.add("light_window");
-        jay.src = '/images/joel.jpg';
+        jay.src = '/assets/joel.jpg';
       } else if (window.location.pathname === "/showcase") {
         carusel.classList.add("light_window");
         showaichone.classList.add("light_window");
