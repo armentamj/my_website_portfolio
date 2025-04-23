@@ -21,7 +21,7 @@
 
 }
 
-.home_slidie{
+.home_info.home_slidie{
   transform: translateY(900px); /* Start with the element 900px lower than its normal position */
 }
 
@@ -98,7 +98,7 @@
   transition: opacity 0.5s ease-out 2s; /* Only transition opacity */
 }
 
-.joel_slidie {
+.joel_pina_colada.joel_slidie {
   opacity: 0; /* Start with 0 opacity */
   transition: opacity 0.5s ease-out 2s; /* Only transition opacity */
 }
