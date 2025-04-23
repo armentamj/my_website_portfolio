@@ -19,7 +19,7 @@ export default class extends Controller {
     const firstCity = document.querySelector(".carusel-img-div.one")?.dataset.city;
     const element = document.getElementById('weather-info');
     console.log("no activeCity yet");
-    element.style.backgroundImage = "url('/assets/miami_beach_carusel.jpg')";
+    element.style.backgroundImage = "url('/images/miami_beach_carusel.jpg')";
 
     if (firstCity) {
       await this.fetchWeatherData(firstCity); // Fetch the weather for the first city
@@ -92,7 +92,7 @@ export default class extends Controller {
     if (activeCity) {
       this.fetchWeatherData(activeCity);
       const element = document.getElementById('weather-info');
-      element.style.backgroundImage = `url('/assets/${activeCity}_carusel.jpg')`;
+      element.style.backgroundImage = `url('/images/${activeCity}_carusel.jpg')`;
     }
   }
 

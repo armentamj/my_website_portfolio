@@ -11,7 +11,6 @@ export default class extends Controller {
 
   slides() {
     const hasVisited = localStorage.getItem("visited");
-    console.log(hasVisited);
     if (window.location.pathname === "/") {
       if (!hasVisited && document.documentElement.clientWidth <= 1470) {
         localStorage.setItem("visited", "true");
@@ -38,6 +37,7 @@ export default class extends Controller {
           }, 2500);
   
       } else {
+        console.log(hasVisited);
         const image = document.querySelector(".joel_pina_colada");
         image.style.transition = 'opacity 0s'
         image.classList.add("joel_visible");

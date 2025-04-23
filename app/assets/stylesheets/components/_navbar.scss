@@ -59,7 +59,7 @@
   transition: background-color 1s ease, color 0.1s ease;
 }
 
-.slidie{
+.navi.slidie{
   transform: translateY(-100%); //Start hidden above the page//
   transition: transform 2s ease-in-out 0.5s; //Animation duration and easing//
   top: 0;

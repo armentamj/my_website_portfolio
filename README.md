@@ -1,25 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Deployment
 
-Things you may want to cover:
+### Login to your Server
+```bash
+ssh root@proxy.armentamj.de
+```
 
-* Ruby version
+### Change into your correct directory
+```bash
+cd docker
+cd my_website_portfolio
+```
 
-* System dependencies
+### Deploy the latest version
+```bash
+./deploy.sh
+```
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# my_website_portfolio
