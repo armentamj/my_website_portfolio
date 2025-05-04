@@ -1,6 +1,7 @@
 .contact-big{
     margin-top: 100px;
     width: 70%;
+    text-align: center;
     
 }
 
@@ -11,10 +12,15 @@
 
 .contact-big .contact-p{
     font-size: 30px;
-    text-align: center;
     text-decoration: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    hyphens: auto;
 }
 
 .contact-pe{
     text-decoration: none;
+    text-align: center;
 }

@@ -3,10 +3,8 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="slide-in"
 export default class extends Controller {
   connect() {
-    window.addEventListener("turbo:load", () => {
-      console.log("slide-in connected");
-      this.slides();
-    });
+    console.log("slide-in connected");
+    this.slides();
   }
 
   slides() {
@@ -20,7 +18,7 @@ export default class extends Controller {
         homeInfo.classList.add("home_visible");
         const image = document.querySelector(".joel_pina_colada");
         image.classList.add("joel_visible");
-  
+
       } else if (!hasVisited) {
           localStorage.setItem("visited", "true");
           const body = document.querySelector(".jack");
@@ -31,11 +29,11 @@ export default class extends Controller {
           homeInfo.classList.add("home_visible");
           const image = document.querySelector(".joel_pina_colada");
           image.classList.add("joel_visible");
-    
+
           setTimeout(() => {
             body.classList.remove("temp-body");
           }, 2500);
-  
+
       } else {
         console.log(hasVisited);
         const image = document.querySelector(".joel_pina_colada");
