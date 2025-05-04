@@ -13,6 +13,13 @@
     font-size: 30px;
     text-align: center;
     text-decoration: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 90%;
+    max-width: 100%;
+    white-space: normal;
+    hyphens: auto;
 }
 
 .contact-pe{
