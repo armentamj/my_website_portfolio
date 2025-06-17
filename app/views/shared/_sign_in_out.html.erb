@@ -1,0 +1,31 @@
+<div class="sign-in-out-big light_window">
+  <% if user_signed_in? %>
+    <div class="sign-in-out-div">
+      <%= link_to edit_user_registration_path, class: "link-to", title: "Profile" do %>
+        <p class="sign-in-out-target sign-in-out-hover-three">
+          <i class="fas fa-user-circle"></i>
+        </p>
+      <% end %>
+      <p class="sign-in-out-p">|</p>
+      <%= link_to destroy_user_session_path, method: :delete, class: "link-to", title: "Sign-Out" do %>
+        <p class="sign-in-out-target sign-in-out-hover-three">
+          <i class="fas fa-sign-out-alt"></i>
+        </p>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="sign-in-out-div">
+      <%= link_to new_user_session_path, class: "link-to", title: "Sign-In" do %>
+        <p class="sign-in-out-target sign-in-out-hover-three">
+          <i class="fas fa-sign-in-alt"></i>
+        </p>
+      <% end %>
+      <p class="sign-in-out-p">|</p>
+      <%= link_to new_user_registration_path, class: "link-to", title: "Sign-Up" do %>
+        <p class="sign-in-out-target sign-in-out-hover-three">
+          <i class="fas fa-user-plus"></i>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

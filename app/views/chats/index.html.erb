@@ -1,0 +1,27 @@
+<div class="chat-index-big light_window">
+  <h1 class="showcase-h1">Friends</h1>
+  <div class="searchie">
+    <%= form_with url: search_chats_path, method: :get, data: { turbo_frame: "search_results" } do |form| %>
+      <%= form.label :query, "Search:" %>
+      <%= form.text_field :query, placeholder: "Enter a name..." %>
+      <%= form.submit "Search" %>
+    <% end %>
+    <turbo-frame id="search_results">
+      <p class="user">Results</p>
+    </turbo-frame>
+  </div>
+  <% if @chats.any? %>
+    <div class="chat-freind-list">
+      <% @chats.each do |chat| %>
+        <% friend = chat.user == current_user ? chat.friend : chat.user %>
+        <div class="chat-mini-div">
+          <%= link_to chat_path(chat), class: "chat-freind" do %>
+            <p class="bowton"><%= friend.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="chat-freind-big">You have no friends yet.</p>
+  <% end %>
+</div>

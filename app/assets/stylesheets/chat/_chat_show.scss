@@ -1,0 +1,125 @@
+.chat-show-big {
+    padding: 20px;
+    margin-top: 75px;
+    width: 42vw;
+}
+
+.chat-show-h1 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.messages-thread {
+    height: 600px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+#message.me {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    width:40vw;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    text-shadow: none;
+    font-size: 18px;
+}
+
+#message.friend {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 40vw;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+}
+
+.red {
+    color: red;
+    text-shadow: 1px 1px 1px white, -1px -1px 1px white, -1px 1px 1px white, 1px -1px 1px white;
+}
+
+.no-messages {
+    text-align: center;
+    font-size: 25px;
+}
+
+.formie > form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+#message_body.formie-text-area {
+    width: 90%;
+    height: 30%;
+}
+
+.formie-send {
+    width: 8%;
+    height: 34px;
+    cursor: pointer;
+    transition: background-color 0.7s ease;
+}
+
+.chat-freind-delete {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    position: fixed;
+    bottom: 10px;
+    transition: background-color 0.7s ease;
+}
+
+.csb-relax {
+    border: solid #00642a 2px;
+    text-shadow: none;
+    color: white;
+    background-color:#00642a ;
+    border-radius: 2px;
+    border: solid white 2px;
+}
+
+.csb-dark {
+    border: solid #000000 2px;
+    color: white;
+    background-color: black;
+    border: solid white 2px;
+}
+
+.csb-light {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.733);
+    border: solid black 2px;
+    border-radius: 2px;
+}
+
+.csb-light:hover {
+    background-color: #2523bb42;
+}
+
+.csb-dark:hover {
+    background-color: #ffffffb0;
+}
+
+.csb-relax:hover {
+    background-color: #59d15f75;
+}

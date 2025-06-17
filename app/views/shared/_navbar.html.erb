@@ -1,25 +1,14 @@
-<div class="navigation-big-three navi slidie">
-  <div class="navigation-knopfen icons">
-    <%= link_to root_path, class: "link-to lt-three" do %>
-      <i class="fa-solid fa-house eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to contact_path, class: "link-to lt-three" do %>
-      <i class="fa-regular fa-envelope-open eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to showcase_path, class: "link-to lt-three" do %>
-      <i class="fa-solid fa-play eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to "https://github.com/armentamj", target: "_blank", class: "link-to lt-three" do %>
-      <i class="fa-brands fa-github eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to "http://linkedin.com/in/joel-armenta-821a80315", target: "_blank", class: "link-to lt-three" do %>
-      <i class="fa-brands fa-linkedin icons eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to "https://huntr.co/p/joel-armenta", target: "_blank", class: "link-to lt-three" do %>
-      <i class="fa-solid fa-square-h eye smaller navigation-i-three"></i>
-    <% end %>
-    <%= link_to "https://troopl.com/armentamj", target: "_blank", class: "link-to lt-three" do %>
-      <i class="fa-solid fa-t eye smaller navigation-i-three"></i>
-    <% end %>
-  </div>
+<div class="navigation-knopfen navigation-big-three navi slidie">
+  <%= link_to root_path, class: "link-to lt-three", title: "Home" do %>
+    <i class="fa-solid fa-house eye smaller navigation-i-three"></i>
+  <% end %>
+  <%= link_to user_signed_in? ? chats_path : new_user_session_path, class: "link-to lt-three", title: "Chat" do %>
+    <i class="fa-solid fa-comments eye smaller navigation-i-three"></i>
+  <% end %>
+  <%= link_to contact_path, class: "link-to lt-three", title: "Contact" do %>
+    <i class="fa-regular fa-envelope-open eye smaller navigation-i-three"></i>
+  <% end %>
+  <%= link_to showcase_path, class: "link-to lt-three", title: "Showcase" do %>
+    <i class="fa-solid fa-play eye smaller navigation-i-three"></i>
+  <% end %>
 </div>

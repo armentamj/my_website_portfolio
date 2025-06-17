@@ -1,0 +1,40 @@
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 56px;
+}
+
+a.talk-with {
+   color: inherit;
+   text-decoration: none;
+}
+
+.user-light {
+    background-color: white;
+}
+
+.user-dark {
+    background-color: black;
+}
+
+.user-relax {
+    background-color: none;
+}
+
+.talk-relax:hover {
+    color: #59d15f75;
+}
+
+.talk-dark:hover {
+    background-color: #ffffffb0;
+}
+
+.talk-light:hover {
+    background-color: #2523bb42;
+}

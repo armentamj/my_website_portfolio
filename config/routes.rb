@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+  devise_for :users
+  mount ActionCable.server => '/cable'
+
+  resources :chats, only: [:index, :show, :create, :destroy] do
+    resources :messages, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
+  end
+
+
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+
+  # Other custom static routes
   get "up" => "rails/health#show", as: :rails_health_check
   get "showcase", to: "pages#showcase"
   get "get_weather", to: "pages#get_weather"
   get "contact", to: "pages#contact"
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

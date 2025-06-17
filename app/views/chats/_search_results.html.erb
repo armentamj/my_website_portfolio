@@ -1,0 +1,12 @@
+<turbo-frame id="search_results">
+  <% if users.present? %>
+    <% users.each do |user| %>
+      <div class="user">
+        <p><%= user.name %></p>
+        <%= link_to "Add #{user.name}", chats_path(chat: { user_id: current_user.id, friend_id: user.id }), method: :post, class: "talk-with talk-light", data: { turbo_method: :post } %>
+      </div>
+    <% end %> 
+  <% else %>
+    <p>No users found.</p>
+  <% end %>
+</turbo-frame>

@@ -1,0 +1,15 @@
+.error.error_overwrite{
+  color: red;
+  background-color: white;
+  animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
