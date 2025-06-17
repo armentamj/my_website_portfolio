@@ -73,4 +73,23 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+    # Devise email configuration using Gmail
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            ENV['EMAIL_USERNAME'], # Stored securely in .env,
+    password:             ENV['EMAIL_PASSWORD'], # Stored securely in .env
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
+  #ensure assets are served dynamically in development
+  config.assets.debug = true            #don't concatenate or minify assets
+  config.assets.compile = true          #compile assets if they're missing
+  config.assets.digest = true          #fingerprinting in dev
 end

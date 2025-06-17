@@ -84,4 +84,4 @@ RUN groupadd --system --gid 1000 rails && \
 USER 1000:1000
 
 EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["sh", "-c", "./bin/rails db:migrate && ./bin/rails server"]

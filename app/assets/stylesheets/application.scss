@@ -5,6 +5,8 @@
 //css partials
 @import "pages/index";
 @import "components/index";
+@import "devise_related/index";
+@import "chat/index";
 
 //styles for the actual application.html.erb
 .yield-div {
@@ -14,6 +16,16 @@
   height: auto;
   width: 100vw;
   margin: 0;
+}
+
+.sign-in-out {
+  z-index: 15;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .temp-body {
@@ -27,6 +39,7 @@
   align-items: start;
   color: #00642a;
   background-image: url('beach-6517214_1920.jpg');
+  background-attachment: fixed;
   text-shadow: 1px 1px 1px white, -1px -1px 1px white, -1px 1px 1px white, 1px -1px 1px white;
   transition: background-image 1s ease, color 0.1s ease;
   margin: 0;
@@ -70,10 +83,8 @@
 
 .modebar{
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-content: start;
-  position: fixed;
-  top: 0;
-  right: 0;
+  justify-content: space-between;
+  gap: 0;
+  align-content: center;
+
 }

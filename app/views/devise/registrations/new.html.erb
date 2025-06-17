@@ -1,0 +1,39 @@
+<div class="devise-big light_window">
+  <h1 class="devise-aich-one">Sign up</h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field overwrite">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="field overwrite">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+    <div class="field overwrite">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <div class="field overwrite">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field overwrite">
+      <%= f.label :motto %><br />
+      <%= f.text_field :motto %>
+    </div>
+    <div class="field overwrite">
+      <%= f.label :picture %><br />
+      <%= f.file_field :picture %>
+    </div>
+    <div class="actions bowton">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+  <div class="div-shared-links overpower">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

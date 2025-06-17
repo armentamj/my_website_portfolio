@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chat: one
+  user: one
+  body: MyText
+  status: 1
+  sent_at: 2025-05-22 13:55:36
+
+two:
+  chat: two
+  user: two
+  body: MyText
+  status: 1
+  sent_at: 2025-05-22 13:55:36

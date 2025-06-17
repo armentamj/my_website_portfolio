@@ -1,0 +1,31 @@
+<div class="devise-big light_window">
+  <h1 class="devise-aich-one">Log In</h1>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field overwrite">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field overwrite">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field overwrite remember-me">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions bowton">
+      <%= f.submit "Log In" %>
+    </div>
+  <% end %>
+  <div id="links" class="links-overwrite-three">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+

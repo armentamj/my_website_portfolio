@@ -1,0 +1,16 @@
+#links.links-overwrite {
+    color: #00642a;
+}
+
+#links.links-overwrite-two {
+    color: #ffffff;
+}
+
+#links.links-overwrite-three {
+    color: #000000;
+}
+
+#links > * {
+    text-decoration: none;
+    text-decoration-color: lightblue;
+}

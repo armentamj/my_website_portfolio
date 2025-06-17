@@ -1,0 +1,51 @@
+.devise-big {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 75px;
+    padding: 15px;
+    width: 50vw;
+}
+
+.devise-aich-one {
+    margin: 0;
+    padding: 20px;
+}
+
+.devise-aich-two {
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.devise-aich-two-point-two {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.field.overwrite{
+    padding: 20px;
+    font-size: 20px;
+}
+
+.double {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.my-infos {
+    width: 40%;
+    padding: 20px;
+}
+
+.my-info {
+    font-size: 20px;
+}
+
+.my-edit {
+    width: 40%;
+}

@@ -1,0 +1,21 @@
+<div class="devise-big light_window">
+  <h1 class="devise-aich-one">Resend unlock instructions</h1>
+
+  <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field overwrite">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="actions bowton">
+      <%= f.submit "Resend unlock instructions" %>
+    </div>
+  <% end %>
+
+  <div class="div-shared-links overpower">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+

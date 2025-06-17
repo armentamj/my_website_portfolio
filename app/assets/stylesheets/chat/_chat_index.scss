@@ -1,0 +1,42 @@
+.chat-index-big {
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.searchy{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.chat-freind-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 20px;
+    height: 500px;
+    overflow: auto;
+}
+
+.chat-freind-big {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-mini-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 94%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid white;
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+.chat-freind-list a, .chat-freind-list p {
+    text-decoration: none;
+    color: inherit;
+}

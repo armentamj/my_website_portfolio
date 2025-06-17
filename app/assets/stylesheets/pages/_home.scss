@@ -2,7 +2,7 @@
 .home_big{
   width: 100%;
   height: auto;
-  margin: 25px 0 0 0;
+  margin: 75px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,26 +141,29 @@
 }
 
 
-@media screen and (max-width: 1470px) {
+@media (max-width: 1470px) {
   .home_big {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    position: absolute;
-    right: 0;
-    top: 54px;
-    width: calc(100vw - 117px);
-    margin: 2px;
+    width: 74vw;
+    margin-top: 75px;
   }
 
   .home_info, .img_div{
     height: auto;
-    width: 670px;
+    width: 76vw;
   }
 
   .navbar{
-    width: 50px;
     height: 100vh;
+  }
+
+  .navigation-knopfen {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: calc(100vh - 52px);
   }
 
   .navbar.navigation-big, .navbar.navigation-big-two, .navbar.navigation-big-three{
@@ -185,16 +188,42 @@
     margin: 2px;
     font-size: 16px;
   }
-}
 
-@media screen and (max-width: 780px) {
-  .home_info, .img_div{
-    width: 550px;
+    .sign-in-out-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sign-in-out-p {
+    display: none;
+  }
+
+  .devise-big {
+    margin-top: 75px;
   }
 }
 
-@media screen and (max-width: 630px) {
-  .home_info, .img_div{
-    width: 430px;
+@media (max-width: 900px) {
+  .double {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .devise-big {
+    width: 65vw;
+  }
+
+  .navigation-knopfen {
+    width: 8vw;
+  }
+
+  .my-edit, .my-infos {
+    width: 100%;
   }
 }
+

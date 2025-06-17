@@ -1,0 +1,41 @@
+.sign-in-out-big {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px;
+}
+
+.sign-in-out-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+
+.sign-in-out-big *{
+    margin: 0;
+}
+
+.sign-in-out-target {
+    transition: background-color 1s ease, color 0.1s ease;
+}
+
+.sign-in-out-hover:hover {
+    background-color: #59d15f75;
+}
+
+.sign-in-out-target.sign-in-out-hover-two:hover{
+    background-color: #ffffffb0;
+}
+
+
+.sign-in-out-target.sign-in-out-hover-three:hover {
+    background-color: #2523bb42; 
+}
+
+.sign-in-out-target > i {
+    font-size: 20px;
+}
