@@ -10,7 +10,9 @@ users_to_delete = User.where.not(id: main_user&.id)
 Message.where(user: users_to_delete).destroy_all
 
 #delete chats that have users as user or friend)
-Chat.where(user: users_to_delete).or(Chat.where(friend: users_to_delete)).destroy_all
+Chat.where(user_id: users_to_delete.select(:id))
+    .or(Chat.where(friend_id: users_to_delete.select(:id)))
+    .destroy_all
 
 #delete all users
 users_to_delete.destroy_all
@@ -42,20 +44,22 @@ users.each do |user|
 
   friends.each do |friend|
     #skip if a chat already exists between both users
-    next if Chat.where(user: user, friend: friend).or(Chat.where(user: friend, friend: user)).exists?
+    next if Chat.where(user_id: user.id, friend_id: friend.id)
+                 .or(Chat.where(user_id: friend.id, friend_id: user.id))
+                 .exists?
 
     chat = Chat.create!(user: user, friend: friend)
     topic = Faker::Lorem.word
 
     30.times do
-    sender = [user, friend].sample
-    Message.create!(
+      sender = [user, friend].sample
+      Message.create!(
         chat: chat,
         user: sender,
         body: Faker::Lorem.sentence(word_count: rand(5..15)),
         sent_at: Faker::Time.backward(days: 14),
         status: :sent # <-- Add this line to set default status
-        )
+      )
     end
   end
 end

@@ -1,7 +1,8 @@
 class Chat < ApplicationRecord
   belongs_to :user
-  belongs_to :friend, class_name: 'User'
   has_many :messages, dependent: :destroy
+  belongs_to :friend, class_name: "User", foreign_key: "friend_id"
+
 
   #does not allow for to conversations where it is beteen the same two users
   validate :no_duplicate_chat
