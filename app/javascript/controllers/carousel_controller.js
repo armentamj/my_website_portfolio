@@ -135,6 +135,4 @@ export default class extends Controller {
     const pressure = document.querySelector(".pressure");
     pressure.innerText = `Pressure: ${weatherData.pressure} mbar`;
   }
-
-  
 }

@@ -41,7 +41,7 @@ class ChatsController < ApplicationController
   end
 
   def search
-    query = params[:query].to_s.strip
+  query = params[:query].to_s.strip
 
     if query.blank?
       respond_to do |format|
@@ -51,21 +51,25 @@ class ChatsController < ApplicationController
       return
     end
 
-    return @users = [] if query.length > 20
+    if query.length > 20
+      respond_to do |format|
+        format.turbo_stream { render partial: "chats/query_too_long_message" }
+        format.html { render partial: "chats/query_too_long_message" }
+      end
+      return
+    end
 
     emoji_regex = /[^\p{L}\p{N}\p{P}\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\s\-']+/u
     sanitized_query = query.gsub(emoji_regex, '')
 
     @users = User.where("LOWER(name) LIKE ?", "%#{sanitized_query.downcase}%")
                 .where.not(id: current_user.id)
+
     respond_to do |format|
       format.turbo_stream { render partial: "chats/search_results", locals: { users: @users } }
       format.html { render partial: "chats/search_results", locals: { users: @users } }
     end
   end
-end
-
-
 
   private
 
@@ -80,3 +84,4 @@ end
   def chat_params
     params.require(:chat).permit(:user_id, :friend_id)
   end
+end

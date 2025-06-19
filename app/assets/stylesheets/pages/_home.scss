@@ -157,13 +157,17 @@
 
   .navbar{
     height: 100vh;
-  }
-
-  .navigation-knopfen {
     position: fixed;
     bottom: 0;
     left: 0;
-    height: calc(100vh - 52px);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .navigation-knopfen {
+    height: calc(100vh-52px);
   }
 
   .navbar.navigation-big, .navbar.navigation-big-two, .navbar.navigation-big-three{
@@ -219,11 +223,18 @@
   }
 
   .navigation-knopfen {
-    width: 8vw;
+    width: 11vw;
   }
 
   .my-edit, .my-infos {
     width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .sign-in-out-div {
+    width: 7.4vw;
+    padding: 0;
   }
 }
 
