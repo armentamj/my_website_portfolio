@@ -1,6 +1,6 @@
 <div class="devise-big light_window">
   <h1 class="devise-aich-one">Log In</h1>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false } }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field overwrite">
