@@ -222,10 +222,6 @@
     width: 65vw;
   }
 
-  .navigation-knopfen {
-    width: 11vw;
-  }
-
   .my-edit, .my-infos {
     width: 100%;
   }
@@ -235,6 +231,19 @@
   .sign-in-out-div {
     width: 7.4vw;
     padding: 0;
+  }
+
+  .chat-index-big {
+    width: 70vw;
+  }
+
+  .formie > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+    padding-bottom: 40px;
   }
 }
 

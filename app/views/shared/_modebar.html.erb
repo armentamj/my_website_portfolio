@@ -1,6 +1,16 @@
 <div class="big-mode-three modus" data-controller="dark-mode">
-  <h3 class="modes">Modes</h3>
-  <p class="navigation-knopfe-three ldr bowton darky"  data-mode="dark" data-action="click->dark-mode#dark">Dark</p>
-  <p class="navigation-knopfe-three ldr bowton lighty show" data-mode="light" data-action="click->dark-mode#dark">Light</p>
-  <p class="navigation-knopfe-three ldr bowton relaxy" data-mode="relax" data-action="click->dark-mode#dark">Relax</p>
+  <div class="circular-image">
+    <% if current_user&.picture&.attached? %>
+      <%= image_tag current_user.picture, class: "user-pic" %>
+    <% end %>
+  </div>
+  <p>
+    <i class="fas fa-moon navigation-knopfe-three ldr bowton darky" title="Dark Mode" data-mode="dark" data-action="click->dark-mode#dark"></i>
+  </p>
+  <p>
+    <i class="fas fa-sun navigation-knopfe-three ldr bowton lighty show" title="Light Mode" data-mode="light" data-action="click->dark-mode#dark"></i>
+  </p>
+  <p>
+    <i class="fas fa-umbrella-beach navigation-knopfe-three ldr bowton relaxy" title="Relax Mode"data-mode="relax" data-action="click->dark-mode#dark"></i>
+  </p>
 </div>

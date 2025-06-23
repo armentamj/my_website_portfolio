@@ -90,7 +90,7 @@
 
 //links that are also icons on relax mode
 .navigation-i{
-  margin: 30px 10px 30px 10px;
+  margin: 0;
   font-size: 20px !important;
   letter-spacing: 5px;
   width: max-content;
@@ -107,7 +107,7 @@
 
 //links that are also icons on dark mode
 .navigation-i-two{
-  margin: 30px 10px 30px 10px;
+  margin: 0;
   font-size: 20px !important;
   letter-spacing: 5px;
   width: max-content;
@@ -123,9 +123,9 @@
   transition: background-color 1s ease, color 0.1s ease;
 }
 
-//links that are also icons on light mode
+// links that are also icons on light mode
 .navigation-i-three{
-  margin: 30px 10px 30px 10px;
+  margin: 0;
   font-size: 20px !important;
   letter-spacing: 5px;
   width: max-content;
@@ -135,10 +135,11 @@
   font-weight: 600 !important;
 }
 
-//Making the before elements of the navigation-i classes even
+// making the before elements of the navigation-i classes even
 .navigation-i-three::before, .navigation-i-two::before, .navigation-i::before{
   margin: 0;
   padding: 0;
+  z-index: 20;
 }
 
 .navigation-i-three:hover, .navigation-knopfe-three:hover{
@@ -146,23 +147,23 @@
   transition: background-color 1s ease, color 0.1s ease;
 }
 
-//class for targeting the non-icon links which will have the navigation-knopfe class changed through js
+// class for targeting the non-icon links which will have the navigation-knopfe class changed through js
 .bowton{
   width: max-content;
   cursor: pointer;
 }
 
-//class for targeting the icon links which will have the navigation-i class changed through js
+// class for targeting the icon links which will have the navigation-i class changed through js
 .eye{
   width: max-content;
 }
 
-//class for controlling the link-to helpers from rails
+// class for controlling the link-to helpers from rails
 .link-to{
   text-decoration: none;
 }
 
-//changes the color of the icons because the body class does not affect fontawesome icons and changes it to relax mode
+// changes the color of the icons because the body class does not affect fontawesome icons and changes it to relax mode
 .lt {
   color: #00692c;
   transition: background-color 1s ease, color 0.1s ease;
