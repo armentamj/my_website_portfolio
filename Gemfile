@@ -50,6 +50,9 @@ gem "jbuilder"
 # scss gem
 gem "sassc-rails"
 
+# needed to show the images
+gem "image_processing"
+
 # ostruct gem
 gem 'ostruct'
 

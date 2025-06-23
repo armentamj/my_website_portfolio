@@ -10,7 +10,20 @@
     color: #000000;
 }
 
-#links > * {
+#links > a {
     text-decoration: none;
-    text-decoration-color: lightblue;
+    color: inherit;
+    
+}
+
+#links > a:visited {
+    color: inherit;
+}
+
+.div-shared-links > a {
+    color: inherit;
+}
+
+.div-shared-links > a:visited {
+    color: inherit;
 }

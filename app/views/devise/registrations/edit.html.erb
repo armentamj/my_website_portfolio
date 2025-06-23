@@ -3,6 +3,11 @@
   <div class="double">
     <div class="my-infos">
       <h2 class="devise-aich-two-point-two">Information</h2>
+      <div class="circular-image-2">
+        <% if current_user&.picture&.attached? %>
+          <%= image_tag current_user.picture, class: "user-pic-2" %>
+        <% end %>
+      </div>
       <p class="my-info">Name: <%= current_user.name %></p>
       <p class="my-info">Motto: <%= current_user.motto %></p>
       <p class="my-info">E-mail: <%= current_user.email %></p>
