@@ -1,13 +1,13 @@
 <div class="chat-index-big light_window">
-  <h1 class="showcase-h1">Friends</h1>
-  <div class="searchie">
+  <h1 class="showcase-h1 center-it">Friends</h1>
+  <div class="searchie center-it">
     <%= form_with url: search_chats_path, method: :get, data: { turbo_frame: "search_results" } do |form| %>
       <%= form.label :query, "Search:" %>
       <%= form.text_field :query, placeholder: "Enter a name..." %>
       <%= form.submit "Search" %>
     <% end %>
     <turbo-frame id="search_results">
-      <p class="user light-user">Results</p>
+      <p class="user user-light">Results</p>
     </turbo-frame>
   </div>
   <% if @chats.any? %>
@@ -16,8 +16,9 @@
         <% friend = chat.user == current_user ? chat.friend : chat.user %>
         <div class="chat-mini-div">
           <%= link_to chat_path(chat), class: "chat-freind" do %>
-            <p class="bowton"><%= friend.name %></p>
+            <p class="bowton" id="friend-name"><%= friend.name %></p>
           <% end %>
+          <%= link_to 'Delete friend', chat_path(chat), method: :delete, data: { confirm: "Are you sure you want to delete #{friend.name}?", turbo: false }, class: "chat-freind-delete csb-light" %>
         </div>
       <% end %>
     </div>

@@ -152,7 +152,7 @@
 
   .home_info, .img_div{
     height: auto;
-    width: 76vw;
+    width: 75vw;
   }
 
   .navbar{
@@ -166,20 +166,20 @@
     align-items: center;
   }
 
-  .navigation-knopfen {
-    height: calc(100vh-52px);
-  }
-
   .navbar.navigation-big, .navbar.navigation-big-two, .navbar.navigation-big-three{
     width: 50px;
     height: calc(100vh - 56px);
     top: 56px;
   }
 
+  .navigation-knopfen {
+    height: calc(100vh-54px);
+  }
+
   .big-mode, .big-mode-two, .big-mode-three{
     position: fixed;
     top: 0;
-    left: 0;
+    left: 49px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -244,6 +244,12 @@
     align-items: start;
     gap: 5px;
     padding-bottom: 40px;
+  }
+}
+
+@media (max-height: 500px) {
+  .big-mode, .big-mode-two, .big-mode-three {
+    left: 49px;
   }
 }
 

@@ -254,7 +254,7 @@
 @media screen and (max-width: 1880px) {
 
     .weather-info-container{
-        height: 470px;
+        height: auto;
         width: 35%;
         z-index: 9;
     }
@@ -262,6 +262,14 @@
     .small-div {
         width: 80%;
         height: 470px;
+    }
+
+    .city-name {
+        padding: 5px;
+    }
+
+    .small-div > p {
+        margin: 2px;
     }
 }
 
@@ -272,7 +280,7 @@
         padding: 5px;
     }
     #small-div p{
-        font-size: 20px;
+        font-size: 18px;
         padding: 0;
         margin:  0;
         padding: 10px 0;
@@ -330,7 +338,7 @@
     .weather-info-container{
         width: 90%;
         left: 5%;
-        height: 35%;
+        height: auto;
     }
 }
 
@@ -349,7 +357,7 @@
     }
 
     .next-previous {
-        width: 88%;
+        width: 55%;
     }
 
     .showcase-h1 {
