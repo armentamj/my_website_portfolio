@@ -19,3 +19,4 @@ cd my_website_portfolio
 ```
 
 
+./deploy.sh
