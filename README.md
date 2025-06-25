@@ -17,6 +17,3 @@ cd my_website_portfolio
 ```bash
 ./deploy.sh
 ```
-
-
-./deploy.sh
