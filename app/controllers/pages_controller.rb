@@ -14,9 +14,9 @@ class PagesController < ApplicationController
   end
 
   def get_weather
-    city = params[:city]  # Get the city from the frontend (Stimulus controller or JavaScript)
+    city = params[:city]  # get the city from the frontend (Stimulus controller or JavaScript)
 
-    # Find the city data from the static list (or use a database if needed)
+    # find the city data from the static list (or use a database if needed)
     city_data = @cities.find { |cityone| cityone[:name].downcase == city.downcase }
 
     if city_data
@@ -83,7 +83,7 @@ class PagesController < ApplicationController
         return { error: "Unable to fetch weather data" }
       end
     rescue StandardError => e
-      # Log the error and return a user-friendly message
+      # log the error and return a user-friendly message
       Rails.logger.error("Weather API request failed: #{e.message}")
       return { error: "Weather service is temporarily unavailable" }
     end

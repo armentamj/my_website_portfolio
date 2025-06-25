@@ -70,10 +70,10 @@ export default class extends Controller {
     // chat/index elements
     const chatsies = document.querySelector(".chat-index-big"); // the targeting class for the biggest div in the chat/index view
     const chatSearchUser = document.querySelector(".user"); // the targeting class for the div that displays the search result for the user search in the chat/index view
+    const csDelete = document.querySelectorAll(".chat-freind-delete"); // the target class for the delete chat in the chat/index view
 
     // chat/show element
     const chatsieShow = document.querySelector(".chat-show-big"); // the targeting class for the biggest div in the chat/show view
-    const csDelete = document.querySelector(".chat-freind-delete"); // the target class for the delete chat in the chat/show view
     const csSubmit = document.querySelector(".formie-send"); // the target class for the submit button for the messgae form
 
     // 
@@ -116,11 +116,11 @@ export default class extends Controller {
     } else if (window.location.pathname === "/chats") {
       chatsies.classList.remove("light_window", "dark_window", "relax_window");
       chatSearchUser.classList.remove("user-light", "user-dark", "user-relax");
+      csDelete.forEach(fdb => fdb.classList.remove("csb-light", "csb-dark", "csb-relax"));
 
       // chat/show view
     } else if (/^\/chats\/\d+$/.test(window.location.pathname)) {
       chatsieShow.classList.remove("light_window", "dark_window", "relax_window");
-      csDelete.classList.remove("csb-light", "csb-dark", "csb-relax");
       csSubmit.classList.remove("csb-light", "csb-dark", "csb-relax");
     }
 
@@ -157,9 +157,9 @@ export default class extends Controller {
       } else if (window.location.pathname === "/chats") {
         chatsies.classList.add("dark_window");
         chatSearchUser.classList.add("user-dark");
+        csDelete.forEach(csb => csb.classList.add("csb-dark"));
       } else if (/^\/chats\/\d+$/.test(window.location.pathname)) {
         chatsieShow.classList.add("dark_window");
-        csDelete.classList.add("csb-dark");
         csSubmit.classList.add("csb-dark");
       }
 
@@ -194,9 +194,9 @@ export default class extends Controller {
       } else if (window.location.pathname === "/chats") {
         chatsies.classList.add("light_window");
         chatSearchUser.classList.add("user-light");
+        csDelete.forEach(csb => csb.classList.add("csb-light"));
       } else if (/^\/chats\/\d+$/.test(window.location.pathname)) {
         chatsieShow.classList.add("light_window");
-        csDelete.classList.add("csb-light");
         csSubmit.classList.add("csb-light");
       }
 
@@ -231,9 +231,9 @@ export default class extends Controller {
       } else if (window.location.pathname === "/chats") {
         chatsies.classList.add("relax_window");
         chatSearchUser.classList.add("user-relax");
+        csDelete.forEach(csb => csb.classList.add("csb-relax"));
       } else if (/^\/chats\/\d+$/.test(window.location.pathname)) {
         chatsieShow.classList.add("relax_window");
-        csDelete.classList.add("csb-relax");
         csSubmit.classList.add("csb-relax");
       }
     }

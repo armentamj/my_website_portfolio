@@ -9,6 +9,10 @@
     margin-bottom: 20px;
 }
 
+.center-it {
+    text-align: center;
+}
+
 .chat-freind-list {
     display: flex;
     flex-direction: column;
@@ -27,7 +31,7 @@
 
 .chat-mini-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 94%;
     margin-top: 5px;
@@ -35,6 +39,51 @@
     border: 2px solid white;
     border-radius: 2px;
     text-decoration: none;
+
+}
+
+#friend-name {
+    padding: 0;
+}
+
+.chat-freind-delete {
+    border-radius: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    transition: background-color 0.7s ease;
+}
+
+.csb-relax {
+    border: solid #00642a 2px;
+    text-shadow: none;
+    background-color:white;
+    border-radius: 2px;
+}
+
+.csb-dark {
+    border: solid #000000 2px;
+    color: white;
+    background-color: black;
+    border: solid white 2px;
+}
+
+.csb-light {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.733);
+    border: solid black 2px;
+    border-radius: 2px;
+}
+
+.csb-light:hover {
+    background-color: #2523bb42;
+}
+
+.csb-dark:hover {
+    background-color: #ffffffb0;
+}
+
+.csb-relax:hover {
+    background-color: #59d15f75;
 }
 
 .chat-freind-list a, .chat-freind-list p {
