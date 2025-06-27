@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "user_status" do %>
+  <% if user.online == 1 %>
+    <div class="status online">🟢 <%= user.name %> is online</div>
+  <% else %>
+    <div class="status offline">🔴 <%= user.name %> is offline</div>
+  <% end %>
+<% end %>
