@@ -16,7 +16,7 @@
     margin-bottom: 20px;
 }
 
-#message.me {
+.me {
     display: flex;
     justify-content: start;
     gap: 10px;
@@ -32,7 +32,7 @@
     font-size: 18px;
 }
 
-#message.friend {
+.friend {
     display: flex;
     justify-content: end;
     gap: 10px;
@@ -57,7 +57,7 @@
     font-size: 25px;
 }
 
-.formie > form {
+.formie {
     display: flex;
     justify-content: space-between;
     align-items: center;

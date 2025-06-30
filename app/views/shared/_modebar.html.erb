@@ -1,9 +1,9 @@
 <div class="big-mode-three modus" data-controller="dark-mode">
-  <div class="circular-image">
-    <% if current_user&.picture&.attached? %>
+  <% if current_user&.picture&.attached? %>
+    <div class="circular-image">
       <%= image_tag current_user.picture, class: "user-pic" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
   <p>
     <i class="fas fa-moon navigation-knopfe-three ldr bowton darky" title="Dark Mode" data-mode="dark" data-action="click->dark-mode#dark"></i>
   </p>

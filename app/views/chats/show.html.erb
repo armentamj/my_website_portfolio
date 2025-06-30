@@ -2,45 +2,33 @@
   <h1 class="showcase-h1 chat-show-h1">
     <%= @chat.friend.name if @chat.user == current_user %>
   </h1>
-  <div class="messages-thread">
-    <% if @messages.any? %>
-      <% @messages.each do |message| %>
-        <% user_class = message.user_id == current_user.id ? "me" : "friend" %>
-        <div id="message" class="<%= user_class %>">
-          <%= message.body %>
-          <small><%= (message.sent_at || message.created_at).strftime("%m-%d %H:%M") %></small>
-          <div class="status">
-            <% case message.status %>
-            <% when 'sent' %>
-              <%= content_tag(:span, '✓', class: 'red') %>
-            <% when 'delivered' %>
-              <%= content_tag(:span, '✓✓', class: 'red') %>
-            <% when 'read' %>
-              <%= content_tag(:span, '✓✓✓', class: 'red') %>
-            <% else %>
-              <%= 'Status unknown' %>
-            <% end %>
-          </div>
-        </div>
+  <%= turbo_frame_tag "messages" do %>
+    <div class="messages-thread">
+      <% if @messages.any? %>
+        <% @messages.each do |message| %>
+          <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
+        <% end %>
+      <% else %>
+        <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
       <% end %>
-    <% else %>
-      <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
-    <% end %>
-  </div>
-  <div class="formie">
-    <%= form_with(model: [@chat, @message], local: true) do |form| %>
-      <%= form.text_area :body, placeholder: "Type your message...", class: "formie-text-area" %>
-      <%= form.submit "Send", class: "formie-send csb-light" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <%= form_with(model: [@chat, @message], class: "formie") do |form| %>
+    <%= form.text_area :body, placeholder: "Type your message...", class: "formie-text-area" %>
+    <%= form.submit "Send", class: "formie-send csb-light" %>
+  <% end %>
 </div>
 <script>
-  document.addEventListener("turbo:load", function () {
-    setTimeout(function () {
+  document.addEventListener("turbo:before-stream-render", function(event) {
+  #only scroll if the turbo stream is targeting the "messages" frame or messages container
+  const targetId = event.target.getAttribute("target");
+  if (targetId === "messages") {
+    setTimeout(() => {
       const messagesThread = document.querySelector(".messages-thread");
       if (messagesThread) {
         messagesThread.scrollTop = messagesThread.scrollHeight;
       }
     }, 50);
+  }
   });
 </script>
