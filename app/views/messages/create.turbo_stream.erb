@@ -1,4 +1,5 @@
 <%= turbo_stream.append "messages" do %>
-  <%= render partial: "messages/message", locals: { message: @message } %>
+  <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
 <% end %>
+
 

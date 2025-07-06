@@ -9,16 +9,18 @@ class ChatsController < ApplicationController
   end
 
   def show
-    #updates messages from sent to delivered
-    @chat.messages.where.not(user_id: current_user.id).where(status: :sent).update_all(status: Message.statuses[:delivered])
-    
-    #updates all messages shown in the show view as read.
-    @chat.messages.where.not(user_id: current_user.id).where(status: :delivered).update_all(status: Message.statuses[:read])
-    
-    #fetches all messages in order sent or created
-    @messages = @chat.messages.order(Arel.sql("COALESCE(sent_at, created_at) ASC"))
-    @message = Message.new
-  end
+  @chat = Chat.find(params[:id])
+
+  # Mark incoming messages as delivered when chat is opened
+  @chat.messages
+       .where.not(user_id: current_user.id)
+       .where(status: :sent)
+       .update_all(status: Message.statuses[:delivered])
+
+  @messages = @chat.messages.order(Arel.sql("COALESCE(sent_at, created_at) ASC"))
+  @message = Message.new
+end
+
 
 
   def new
