@@ -24,6 +24,8 @@ class Message < ApplicationRecord
     )
   end
 
+  after_update_commit :broadcast_status_update
+
   private
 
   def sanitize_body
@@ -37,5 +39,15 @@ class Message < ApplicationRecord
 
   def set_default_status
     self.status ||= :sent
+  end
+
+  def broadcast_status_update
+    # Broadcast a replace for this message so status updates reflect in UI
+    broadcast_replace_to(
+      "chat_#{chat.id}_messages",
+      target: "message_#{id}",
+      partial: "messages/message",
+      locals: { message: self, current_user: user }
+    )
   end
 end
