@@ -2,33 +2,46 @@
   <h1 class="showcase-h1 chat-show-h1">
     <%= @chat.friend.name if @chat.user == current_user %>
   </h1>
-  <%= turbo_frame_tag "messages" do %>
-    <div class="messages-thread">
-      <% if @messages.any? %>
-        <% @messages.each do |message| %>
-          <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
-        <% end %>
-      <% else %>
-        <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
+  <div class="messages-thread">
+    <% if @messages.any? %>
+      <% @messages.each do |message| %>
+        <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
       <% end %>
-    </div>
-  <% end %>
-  <%= form_with(model: [@chat, @message], class: "formie") do |form| %>
+      <%= turbo_frame_tag "messages" do %>
+      <% end %>
+    <% else %>
+      <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
+    <% end %>
+  </div>
+  <%= form_with(model: [@chat, @message], data: { turbo_stream: true }, class: "formie") do |form| %>
     <%= form.text_area :body, placeholder: "Type your message...", class: "formie-text-area" %>
     <%= form.submit "Send", class: "formie-send csb-light" %>
   <% end %>
 </div>
 <script>
-  document.addEventListener("turbo:before-stream-render", function(event) {
-  #only scroll if the turbo stream is targeting the "messages" frame or messages container
-  const targetId = event.target.getAttribute("target");
-  if (targetId === "messages") {
-    setTimeout(() => {
-      const messagesThread = document.querySelector(".messages-thread");
-      if (messagesThread) {
-        messagesThread.scrollTop = messagesThread.scrollHeight;
-      }
-    }, 50);
-  }
+  document.addEventListener("turbo:submit-end", () => {
+    const messages = document.querySelector(".messages-thread");
+    
+    if (messages) {
+      setTimeout(() => {
+        messages.scrollTop = messages.scrollHeight;
+      }, 50);
+    }
+    
+    const input = document.querySelector(".formie-text-area");
+    
+    if (input) {
+      input.value = "";
+    }
+  });
+
+  document.addEventListener("turbo:load", () => {
+    const messages = document.querySelector(".messages-thread");
+    
+    if (messages) {
+      setTimeout(() => {
+        messages.scrollTop = messages.scrollHeight;
+      }, 50);
+    }
   });
 </script>
