@@ -15,15 +15,17 @@ class Message < ApplicationRecord
       message: "contains invalid characters"
   }
 
+  # Broadcast new message to chat stream (for both users)
   after_create_commit do
     broadcast_append_to(
       "chat_#{chat.id}_messages",
       target: "messages",
       partial: "messages/message",
-      locals: { message: self, current_user: user }
+      locals: { message: self } # <-- no current_user here
     )
   end
 
+  # Broadcast status update (like delivered or read)
   after_update_commit :broadcast_status_update
 
   private
@@ -42,12 +44,11 @@ class Message < ApplicationRecord
   end
 
   def broadcast_status_update
-    # Broadcast a replace for this message so status updates reflect in UI
     broadcast_replace_to(
       "chat_#{chat.id}_messages",
       target: "message_#{id}",
       partial: "messages/message",
-      locals: { message: self, current_user: user }
+      locals: { message: self } # <-- again, no current_user
     )
   end
 end
