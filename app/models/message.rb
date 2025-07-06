@@ -13,14 +13,22 @@ class Message < ApplicationRecord
     format: {
       with: /\A[\p{L}\p{N}\p{P}\p{S}\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\s]+\z/u,
       message: "contains invalid characters"
-    }
+  }
+
+  after_create_commit do
+    broadcast_append_to(
+      "chat_#{chat.id}_messages",
+      target: "messages",
+      partial: "messages/message",
+      locals: { message: self, current_user: user }
+    )
+  end
 
   private
 
   def sanitize_body
     return if body.blank?
 
-    # Strip leading/trailing whitespace and remove disallowed characters
     self.body = body.strip.gsub(
       /[^\p{L}\p{N}\p{P}\p{S}\u{1F300}-\u{1FAFF}\u{2600}-\u{26FF}\s]/u,
       ''
