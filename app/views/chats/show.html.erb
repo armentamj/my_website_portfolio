@@ -20,29 +20,27 @@
   <% end %>
 </div>
 <script>
-  document.addEventListener("turbo:submit-end", () => {
+  function scrollMessagesToBottom() {
     const messages = document.querySelector(".messages-thread");
-    
     if (messages) {
       setTimeout(() => {
         messages.scrollTop = messages.scrollHeight;
       }, 50);
     }
-    
+  }
+
+  document.addEventListener("turbo:load", scrollMessagesToBottom);
+  document.addEventListener("turbo:submit-end", () => {
+    scrollMessagesToBottom();
     const input = document.querySelector(".formie-text-area");
-    
-    if (input) {
-      input.value = "";
-    }
+    if (input) input.value = "";
   });
 
-  document.addEventListener("turbo:load", () => {
-    const messages = document.querySelector(".messages-thread");
-    
-    if (messages) {
-      setTimeout(() => {
-        messages.scrollTop = messages.scrollHeight;
-      }, 50);
+  // ⬅️ New: scroll when a Turbo Stream element is inserted (i.e., when a new message arrives)
+  document.addEventListener("turbo:before-stream-render", (event) => {
+    if (event.target && event.target.action === "append") {
+      scrollMessagesToBottom();
     }
   });
 </script>
+

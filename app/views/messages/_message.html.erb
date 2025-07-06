@@ -1,7 +1,15 @@
-<% user_class = message.user_id == current_user.id ? "me" : "friend" %>
+<% user_class =
+     defined?(current_user) && current_user.present? ?
+     (message.user_id == current_user.id ? "me" : "friend") :
+     "friend" %>
+
 <div id="message_<%= message.id %>" class="<%= user_class %>">
   <%= message.body %>
-  <small><%= (message.sent_at || message.created_at).strftime("%m-%d %H:%M") %></small>
+
+  <small>
+    <%= (message.sent_at || message.created_at).strftime("%m-%d %H:%M") %>
+  </small>
+
   <div class="status">
     <% case message.status %>
     <% when 'sent' %>
@@ -11,8 +19,9 @@
     <% when 'read' %>
       <%= content_tag(:span, '✓✓✓', class: 'red') %>
     <% else %>
-      Status unknown
+      <span>Status unknown</span>
     <% end %>
   </div>
 </div>
+
 
