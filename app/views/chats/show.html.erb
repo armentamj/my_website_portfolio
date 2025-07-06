@@ -1,4 +1,4 @@
-<div class="chat-show-big light_window">
+<div class="chat-show-big light_window" data-current-user-id="<%= current_user.id %>">
   <h1 class="showcase-h1 chat-show-h1">
     <%= @chat.friend.name if @chat.user == current_user %>
   </h1>
@@ -7,7 +7,7 @@
     <%= turbo_frame_tag "messages" do %>
       <% if @messages.any? %>
         <% @messages.each do |message| %>
-          <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
+          <%= render partial: "messages/message", locals: { message: message } %>
         <% end %>
       <% else %>
         <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
@@ -29,18 +29,45 @@
     }
   }
 
-  document.addEventListener("turbo:load", scrollMessagesToBottom);
+  function decorateMessages() {
+    const chatContainer = document.querySelector('.chat-show-big');
+    if (!chatContainer) return;
+
+    const currentUserId = chatContainer.dataset.currentUserId;
+    if (!currentUserId) return;
+
+    document.querySelectorAll('.messages-thread .message').forEach(messageEl => {
+      const messageUserId = messageEl.dataset.userId;
+      if (!messageUserId) return;
+
+      messageEl.classList.remove('me', 'friend');
+
+      if (messageUserId === currentUserId) {
+        messageEl.classList.add('me');
+      } else {
+        messageEl.classList.add('friend');
+      }
+    });
+  }
+
+  document.addEventListener("turbo:load", () => {
+    scrollMessagesToBottom();
+    decorateMessages();
+  });
+
   document.addEventListener("turbo:submit-end", () => {
     scrollMessagesToBottom();
     const input = document.querySelector(".formie-text-area");
     if (input) input.value = "";
   });
 
-  // ⬅️ New: scroll when a Turbo Stream element is inserted (i.e., when a new message arrives)
+  // Scroll and decorate on new Turbo Stream append (new message)
   document.addEventListener("turbo:before-stream-render", (event) => {
     if (event.target && event.target.action === "append") {
-      scrollMessagesToBottom();
+      setTimeout(() => {
+        scrollMessagesToBottom();
+        decorateMessages();
+      }, 10);
     }
   });
 </script>
-

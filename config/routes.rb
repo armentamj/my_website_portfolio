@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # ✅ Add this block
+  resources :messages, only: [] do
+    post :mark_read, on: :member
+  end
 
   root to: "pages#home"
 
