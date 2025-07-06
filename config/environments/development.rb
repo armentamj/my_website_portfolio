@@ -92,4 +92,13 @@ Rails.application.configure do
   config.assets.debug = true            #don't concatenate or minify assets
   config.assets.compile = true          #compile assets if they're missing
   config.assets.digest = true          #fingerprinting in dev
+
+  # ActionCable configuration for development inside Docker
+  config.action_cable.url = "ws://localhost:3000/cable"
+  config.action_cable.allowed_request_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+  ]
+  config.action_cable.disable_request_forgery_protection = true
+
 end

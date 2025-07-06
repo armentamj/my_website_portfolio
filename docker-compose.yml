@@ -10,8 +10,20 @@ services:
     restart: unless-stopped
     networks:
       - proxy
+    depends_on:
+      - redis
     environment:
       - SECRET_KEY_BASE=${SECRET_KEY_BASE}
       - OPENWEATHERMAP_API_KEY=${OPENWEATHERMAP_API_KEY}
       - EMAIL_USERNAME=${EMAIL_USERNAME}
       - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - REDIS_URL=redis://redis:6379/1
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - "6379:6379"
