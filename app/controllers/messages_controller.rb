@@ -36,13 +36,24 @@ class MessagesController < ApplicationController
   end
 
   def mark_read
-    message = Message.find(params[:id])
+    @message = Message.find(params[:id])
 
-    if message.user_id != current_user.id && !message.read?
-      message.update(status: :read)
+    if @message.user_id != current_user.id && @message.status != 'read'
+      @message.update(status: :read)
+
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            dom_id(@message),
+            partial: "messages/message",
+            locals: { message: @message, current_user: current_user }
+          )
+        end
+        format.html { head :ok }
+      end
+    else
+      head :ok
     end
-
-    head :ok
   end
 
   def destroy

@@ -11,6 +11,8 @@ class ChatsController < ApplicationController
   def show
   @chat = Chat.find(params[:id])
 
+  @other_person = @chat.user == current_user ? @chat.friend : @chat.user
+
   # Mark incoming messages as delivered when chat is opened
   @chat.messages
        .where.not(user_id: current_user.id)
