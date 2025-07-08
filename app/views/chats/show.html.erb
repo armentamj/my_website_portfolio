@@ -1,4 +1,4 @@
-<div class="chat-show-big light_window" data-current-user-id="<%= current_user.id %>">
+<div class="chat-show-big light_window"  data-controller="chat" data-current-user-id="<%= current_user.id %>">
   <h1 class="showcase-h1 chat-show-h1">
     <%= @other_person.name %>
   </h1>
@@ -19,77 +19,5 @@
     <%= form.submit "Send", class: "formie-send csb-light", data: { disable_with: false } %>
   <% end %>
 </div>
-<script>
-  function scrollMessagesToBottom() {
-    const messages = document.querySelector(".messages-thread");
-    if (messages) {
-      setTimeout(() => {
-        messages.scrollTop = messages.scrollHeight;
-      }, 50);
-    }
-  }
-
-  function decorateMessageEl(messageEl, currentUserId) {
-    const messageUserId = messageEl.dataset.userId;
-    if (!messageUserId) return;
-
-    if (parseInt(messageUserId) === parseInt(currentUserId)) {
-      messageEl.classList.add('me');
-    } else {
-      messageEl.classList.add('friend');
-    }
-  }
-
-  function decorateAllMessages() {
-    const chatContainer = document.querySelector('.chat-show-big');
-    if (!chatContainer) return;
-
-    const currentUserId = chatContainer.dataset.currentUserId;
-    if (!currentUserId) return;
-
-    document.querySelectorAll('.messages-thread .message').forEach(messageEl => {
-      decorateMessageEl(messageEl, currentUserId);
-    });
-  }
-
-  function observeNewMessages() {
-    const chatContainer = document.querySelector('.chat-show-big');
-    if (!chatContainer) return;
-
-    const currentUserId = chatContainer.dataset.currentUserId;
-    if (!currentUserId) return;
-
-    const target = document.querySelector('.messages-thread');
-    if (!target) return;
-
-    const observer = new MutationObserver((mutationsList) => {
-      for (const mutation of mutationsList) {
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeType === 1 && node.classList.contains('message')) {
-            decorateMessageEl(node, currentUserId);
-            scrollMessagesToBottom();
-          }
-        });
-      }
-    });
-
-    observer.observe(target, {
-      childList: true,
-      subtree: true
-    });
-  }
-
-  document.addEventListener("turbo:load", () => {
-    scrollMessagesToBottom();
-    decorateAllMessages();
-    observeNewMessages();
-  });
-
-  document.addEventListener("turbo:submit-end", () => {
-    scrollMessagesToBottom();
-    const input = document.querySelector(".formie-text-area");
-    if (input) input.value = "";
-  });
-</script>
 
 
