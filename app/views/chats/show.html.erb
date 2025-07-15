@@ -1,23 +1,18 @@
-<div class="chat-show-big light_window"  data-controller="chat" data-current-user-id="<%= current_user.id %>">
+<div class="chat-show-big light_window" data-controller="chat" data-current-user-id="<%= current_user.id %>">
   <h1 class="showcase-h1 chat-show-h1">
     <%= @other_person.name %>
   </h1>
-  <div class="messages-thread">
+  <div class="messages-thread" data-chat-target="messagesThread">
     <%= turbo_stream_from "chat_#{@chat.id}_messages" %>
     <%= turbo_frame_tag "messages" do %>
       <% if @messages.any? %>
         <% @messages.each do |message| %>
-          <%= render partial: "messages/message", locals: { message: message } %>
+          <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
         <% end %>
       <% else %>
         <p class="no-messages">You have no messages from or for <%= @chat.friend.name %>.</p>
       <% end %>
     <% end %>
   </div>
-  <%= form_with(model: [@chat, @message], data: { turbo_stream: true }, class: "formie") do |form| %>
-    <%= form.text_area :body, placeholder: "Type your message...", class: "formie-text-area" %>
-    <%= form.submit "Send", class: "formie-send csb-light", data: { disable_with: false } %>
-  <% end %>
+  <%= render partial: "messages/form", locals: { chat: @chat, message: @message } %>
 </div>
-
-

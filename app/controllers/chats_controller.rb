@@ -9,21 +9,25 @@ class ChatsController < ApplicationController
   end
 
   def show
-  @chat = Chat.find(params[:id])
+    @other_person = @chat.user == current_user ? @chat.friend : @chat.user
 
-  @other_person = @chat.user == current_user ? @chat.friend : @chat.user
+    # Mark incoming messages as delivered and broadcast updates
+    incoming_messages = @chat.messages.where.not(user_id: current_user.id).where(status: :sent)
+    if incoming_messages.any?
+      incoming_messages.update_all(status: :delivered)
+      incoming_messages.each do |message|
+        Turbo::StreamsChannel.broadcast_replace_to(
+          "chat_#{@chat.id}_messages",
+          target: "message_#{message.id}",
+          partial: "messages/message",
+          locals: { message: message, current_user: current_user }
+        )
+      end
+    end
 
-  # Mark incoming messages as delivered when chat is opened
-  @chat.messages
-       .where.not(user_id: current_user.id)
-       .where(status: :sent)
-       .update_all(status: Message.statuses[:delivered])
-
-  @messages = @chat.messages.order(Arel.sql("COALESCE(sent_at, created_at) ASC"))
-  @message = Message.new
-end
-
-
+    @messages = @chat.messages.includes(:user).order(Arel.sql("COALESCE(sent_at, created_at) ASC"))
+    @message = Message.new
+  end
 
   def new
     @chat = Chat.new
@@ -45,7 +49,7 @@ end
   end
 
   def search
-  query = params[:query].to_s.strip
+    query = params[:query].to_s.strip
 
     if query.blank?
       respond_to do |format|
