@@ -20,6 +20,9 @@ gem 'httparty'
 # Use postGreSQL as the database for Active Record
 gem "pg", group: :production
 
+
+gem 'mini_magick'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
@@ -51,7 +54,9 @@ gem "jbuilder"
 gem "sassc-rails"
 
 # needed to show the images
-gem "image_processing"
+gem 'image_processing', '~> 1.12'
+
+
 
 # ostruct gem
 gem 'ostruct'
