@@ -1,5 +1,7 @@
+<% Rails.logger.info "Rendering create.turbo_stream.erb for message: #{@message.id}" %>
 <%= turbo_stream.append "messages" do %>
-  <%= render partial: "messages/message", locals: { message: message, current_user: current_user } %>
+  <%= render partial: "messages/message", locals: { message: @message, current_user: current_user } %>
 <% end %>
-
-
+<%= turbo_stream.replace "new_message" do %>
+  <%= render partial: "messages/form", locals: { chat: @chat, message: Message.new } %>
+<% end %>

@@ -1,90 +1,47 @@
+// app/javascript/controllers/chat_controller.js
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="chat"
 export default class extends Controller {
+  static targets = ["messagesThread", "textarea"]
+
   connect() {
     console.log("✅ Chat controller connected")
-
+    if (!this.hasMessagesThreadTarget) {
+      console.log("❌ Missing messagesThread")
+      return
+    }
     this.scrollMessagesToBottom()
-    this.decorateAllMessages()
-    this.observeNewMessages()
+    this.focusTextarea()
+    this.element.addEventListener("turbo:frame-load", this.scrollMessagesToBottom.bind(this))
+    this.element.addEventListener("turbo:stream-render", this.handleStreamRender.bind(this))
+  }
+
+  disconnect() {
+    this.element.removeEventListener("turbo:frame-load", this.scrollMessagesToBottom.bind(this))
+    this.element.removeEventListener("turbo:stream-render", this.handleStreamRender.bind(this))
   }
 
   scrollMessagesToBottom() {
     console.log("🔽 scrollMessagesToBottom")
-    const messages = document.querySelector(".messages-thread")
-    if (messages) {
-      setTimeout(() => {
-        messages.scrollTop = messages.scrollHeight
+    setTimeout(() => {
+      if (this.hasMessagesThreadTarget) {
+        this.messagesThreadTarget.scrollTop = this.messagesThreadTarget.scrollHeight
         console.log("Scrolled to bottom")
-      }, 50)
-    }
-  }
-
-  decorateMessageEl(messageEl, currentUserId) {
-    const messageUserId = messageEl.dataset.userId
-    if (!messageUserId) {
-      console.log("❗ No messageUserId")
-      return
-    }
-
-    if (parseInt(messageUserId) === parseInt(currentUserId)) {
-      messageEl.classList.add("me")
-    } else {
-      messageEl.classList.add("friend")
-    }
-  }
-
-  decorateAllMessages() {
-    console.log("✨ decorateAllMessages")
-    const chatContainer = document.querySelector(".chat-show-big")
-    if (!chatContainer) {
-      console.log("❌ no .chat-show-big")
-      return
-    }
-
-    const currentUserId = chatContainer.dataset.currentUserId
-    if (!currentUserId) {
-      console.log("❌ no currentUserId")
-      return
-    }
-
-    document.querySelectorAll(".messages-thread .message").forEach(messageEl => {
-      this.decorateMessageEl(messageEl, currentUserId)
-    })
-  }
-
-  observeNewMessages() {
-    console.log("👀 observeNewMessages")
-    const chatContainer = document.querySelector(".chat-show-big")
-    if (!chatContainer) {
-      console.log("❌ no chatContainer")
-      return
-    }
-
-    const currentUserId = chatContainer.dataset.currentUserId
-    if (!currentUserId) {
-      console.log("❌ no currentUserId")
-      return
-    }
-
-    const target = document.querySelector(".messages-thread")
-    if (!target) {
-      console.log("❌ no .messages-thread")
-      return
-    }
-
-    const observer = new MutationObserver(mutationsList => {
-      for (const mutation of mutationsList) {
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeType === 1 && node.classList.contains("message")) {
-            this.decorateMessageEl(node, currentUserId)
-            this.scrollMessagesToBottom()
-          }
-        })
       }
-    })
+    }, 100)
+  }
 
-    observer.observe(target, { childList: true, subtree: true })
+  focusTextarea() {
+    if (this.hasTextareaTarget) {
+      this.textareaTarget.focus()
+      console.log("Text area focused")
+    } else {
+      console.log("❌ Missing textarea target")
+    }
+  }
+
+  handleStreamRender() {
+    this.scrollMessagesToBottom()
+    this.focusTextarea()
   }
 }

@@ -1,0 +1,11 @@
+<%= form_with(model: [chat, message], id: "new_message", data: { turbo: "true" }, class: "formie", local: false) do |form| %>
+  <%= form.text_area :body, placeholder: "Type your message...", class: "formie-text-area", data: { chat_target: "textarea" } %>
+  <%= form.submit "Send", class: "formie-send csb-light", data: { disable_with: false } %>
+  <% if message.errors.any? %>
+    <div class="error-messages">
+      <% message.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

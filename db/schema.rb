@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_22_115536) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_10_142210) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -56,7 +56,10 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_22_115536) do
     t.datetime "sent_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["chat_id", "created_at"], name: "index_messages_on_chat_id_and_created_at"
+    t.index ["chat_id", "sent_at"], name: "index_messages_on_chat_id_and_sent_at"
     t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["user_id", "status"], name: "index_messages_on_user_id_and_status"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 

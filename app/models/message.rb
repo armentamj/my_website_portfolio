@@ -15,6 +15,10 @@ class Message < ApplicationRecord
       message: "contains invalid characters"
     }
 
+  def formatted_timestamp
+    (sent_at || created_at).strftime("%m-%d %H:%M")
+  end
+
   private
 
   def sanitize_body

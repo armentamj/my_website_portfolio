@@ -3,4 +3,8 @@
 import Rails from "@rails/ujs"
 Rails.start()
 
+document.addEventListener("turbo:stream-error", (event) => {
+  console.error("Turbo Stream error:", event.detail);
+});
+
 import "controllers"

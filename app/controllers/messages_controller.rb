@@ -1,37 +1,44 @@
 class MessagesController < ApplicationController
   before_action :set_chat
   before_action :authenticate_user!
+  before_action :set_message, only: [:mark_read, :destroy]
 
   def create
     @message = @chat.messages.build(message_params)
     @message.user = current_user
     @message.sent_at = Time.current
 
+    Rails.logger.info "Processing create with format: #{request.format}"
     if @message.save
-      # Broadcast the new message manually (ActionCable or Turbo Streams)
-      broadcast_message(@message, current_user)
-
+      Rails.logger.info "Message saved successfully: #{@message.id}"
+      Turbo::StreamsChannel.broadcast_append_to(
+        "chat_#{@chat.id}_messages",
+        target: "messages",
+        partial: "messages/message",
+        locals: { message: @message, current_user: current_user }
+      )
       respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.append(
-            "messages",
-            partial: "messages/message",
-            locals: { message: @message, current_user: current_user }
-          )
-        end
-        format.html { redirect_to @chat, notice: 'Message sent!' }
+        format.turbo_stream { head :ok }
+        format.html { redirect_to @chat, notice: "Message sent." }
       end
     else
+      Rails.logger.error "Message save failed: #{@message.errors.full_messages}"
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
             "new_message",
             partial: "messages/form",
             locals: { chat: @chat, message: @message }
-          )
+          ), status: :unprocessable_entity
         end
-        format.html { render 'chats/show', status: :unprocessable_entity }
+        format.html { render "chats/show", status: :unprocessable_entity }
       end
+    end
+  rescue StandardError => e
+    Rails.logger.error "Error in MessagesController#create: #{e.message}\n#{e.backtrace.join("\n")}"
+    respond_to do |format|
+      format.turbo_stream { render plain: "Server error", status: :internal_server_error }
+      format.html { render plain: "Server error", status: :internal_server_error }
     end
   end
 
@@ -40,7 +47,6 @@ class MessagesController < ApplicationController
 
     if @message.user_id != current_user.id && @message.status != 'read'
       @message.update(status: :read)
-
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
@@ -57,9 +63,15 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message = @chat.messages.find(params[:id])
     @message.destroy
-    redirect_to @chat, notice: 'Message deleted.'
+    Turbo::StreamsChannel.broadcast_remove_to(
+      "chat_#{@chat.id}_messages",
+      target: "message_#{@message.id}"
+    )
+    respond_to do |format|
+      format.turbo_stream { head :ok }
+      format.html { head :ok }
+    end
   end
 
   private
@@ -68,20 +80,11 @@ class MessagesController < ApplicationController
     @chat = Chat.find(params[:chat_id])
   end
 
-  def message_params
-    params.require(:message).permit(:body, :status)
+  def set_message
+    @message = @chat.messages.find(params[:id])
   end
 
-  def broadcast_message(message, current_user)
-    # You can either broadcast using ActionCable or Turbo Streams here.
-    # Here is a simple Turbo Streams broadcast using Rails built-in broadcasting:
-
-    # For example, if you have a Turbo Stream subscription on "chat_#{chat_id}_messages":
-    Turbo::StreamsChannel.broadcast_append_to(
-      "chat_#{message.chat_id}_messages",
-      target: "messages",
-      partial: "messages/message",
-      locals: { message: message, current_user: current_user }
-    )
+  def message_params
+    params.require(:message).permit(:body, :status)
   end
 end
