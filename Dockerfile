@@ -15,9 +15,9 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 WORKDIR /rails
 
 # Install base packages
-# Replace libpq-dev with sqlite3 if using SQLite, or libmysqlclient-dev if using MySQL
+# Added imagemagick for image processing with ActiveStorage
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libpq-dev && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libpq-dev imagemagick && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment
@@ -80,7 +80,10 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
+    mkdir -p /rails/storage && \
+    chown -R rails:rails db log storage tmp && \
+    chmod -R 755 /rails/storage
+
 USER 1000:1000
 
 EXPOSE 3000
